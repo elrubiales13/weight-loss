@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Rutina y Alimentación</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    
+
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #5cb85c;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1{
+            color: #ffffff;
+        }
+        h2, h3 {
+            color: #5cb85c;
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #f9f9f9;
+            margin: 0.5rem 0;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            position: relative;
+        }
+        li:hover {
+            background: #e6ffe6;
+        }
+        .recipe {
+            display: none;
+            background: #f4f4f4;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-top: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: #fff;
+            margin-top: 2rem;
+        }
+        a {
+            color: #5cb85c;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        input, button {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            width: calc(100% - 1rem);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #5cb85c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Plan Personalizado</h1>
+    </header>
+    <div class="container">
+        <section>
+            <h2>Rutina Diaria</h2>
+            <ul>
+                <li><strong>06:30</strong> - Desayuno: Café con leche y avena con fruta o pan integral con aguacate.</li>
+                <li><strong>08:10 - 09:00</strong> - Deporte en el trabajo: Carrera continua, series, fuerza o vóleybol.</li>
+                <li><strong>09:00</strong> - Post-entrenamiento: Fruta con yogur o huevo cocido y un café.</li>
+                <li><strong>15:30</strong> - Comida: Platos equilibrados con proteínas, carbohidratos y verduras.</li>
+                <li><strong>16:00</strong> - Siesta: Máximo 20-30 minutos.</li>
+                <li><strong>16:30</strong> - Merienda: Café con fruta, frutos secos o tostada integral.</li>
+                <li><strong>18:00 - 21:00</strong> - Labores del hogar, estudios y compras.</li>
+                <li><strong>21:00</strong> - Cena ligera: Ensalada, cremas de verduras o tortilla.</li>
+                <li><strong>23:00</strong> - Dormir: Reduce pantallas antes de acostarte, al menos de 30 a 60 minutos antes de dormir.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Menú Semanal</h2>
+            <h3>Lunes</h3>
+            <ul>
+                <li onclick="toggleRecipe(this)"><strong>Comida:</strong> Pollo a la plancha con arroz integral y verduras al vapor.
+                    <div class="recipe">Receta:<br>
+                    - Cocina arroz integral (puedes hacer una tanda para varios días).<br>
+					- Asa pechuga de pollo con especias (pimienta, ajo, pimentón).<br>
+					- Cocina al vapor zanahorias, brócoli y calabacín (puedes usar congelados).</div>
+                </li>
+                <li onclick="toggleRecipe(this)"><strong>Cena:</strong> Tortilla francesa con espinacas y ensalada.
+                    <div class="recipe">Receta:<br>
+                        - Bate 2 huevos, añade espinacas frescas y cocina como tortilla. <br>
+                        - Acompaña con ensalada mixta.</div>
+                </li>
+            </ul>
+            <h3>Martes</h3>
+            <ul>
+                <li onclick="toggleRecipe(this)"><strong>Comida:</strong> Lentejas guisadas con verduras.
+                    <div class="recipe">Receta:<br>
+                        - Cocina las lentejas con cebolla, zanahoria, pimiento y tomate natural.<br>
+                        - Añade especias al gusto.</div>
+                </li>
+                <li onclick="toggleRecipe(this)"><strong>Cena:</strong> Crema de calabacín con huevo cocido.
+                    <div class="recipe">Receta:<br>
+                        - Cuece calabacín con puerro, tritura con caldo y añade huevo cocido troceado como guarnición.</div>
+                </li>
+            </ul>
+            <h3>Miércoles</h3>
+            <ul>
+                <li onclick="toggleRecipe(this)"><strong>Comida:</strong> Pasta integral con atún y salsa de tomate casera
+                    <div class="recipe">Receta:<br>
+                        - Haz una salsa con tomate triturado, ajo y cebolla.<br>
+                        - Añade atún enlatado al natural.<br>
+                        - Mezcla todo y sirve con albahaca fresca o queso rallado.</div>
+                </li>
+                <li onclick="toggleRecipe(this)"><strong>Cena:</strong> Ensalada de garbanzos y aguacate.
+                    <div class="recipe">Receta:<br>
+                        - Mezcla garbanzos cocidos, aguacate en trozos, tomate, pepino y cebolla.<br>
+                        - Aliña con aceite de oliva, limón y especias al gusto.</div>
+                </li>
+            </ul>
+            <h3>Jueves</h3>
+            <ul>
+                <li onclick="toggleRecipe(this)"><strong>Comida:</strong> Merluza al horno con patatas y verduras.
+                    <div class="recipe">Receta:<br>
+                        - Coloca filetes de merluza en una bandeja.<br>
+                        - Añade rodajas de patata, zanahoria y calabacín.<br>
+                        - Hornea a 180ºC durante 20-25 minutos con un chorrito de aceite, ajo y perejil.</div>
+                </li>
+                <li onclick="toggleRecipe(this)"><strong>Cena:</strong> Revuelto de champiñones y espárragos con tostada integral.
+                    <div class="recipe">Receta:<br>
+                        - Saltea champiñones y espárragos.<br>
+                        - Añade 2 huevos batidos y revuelve.<br>
+                        - Sirve con una tostada integral.</div>
+                </li>
+            </ul>
+            <h3>Viernes</h3>
+            <ul>
+                <li onclick="toggleRecipe(this)"><strong>Comida:</strong> Pollo al curry con arroz basmati.
+                    <div class="recipe">Receta:<br>
+                        - Sofríe cebolla y ajo, añade pechuga de pollo en trozos.<br>
+                        - Incorpora leche de coco, curry en polvo y un toque de cúrcuma. Cocina 10 minutos.<br>
+                        - Sirve con arroz basmati.</div>
+                </li>
+                <li onclick="toggleRecipe(this)"><strong>Cena:</strong> Sopa de verduras y pechuga de pavo a la plancha.
+                    <div class="recipe">Receta:<br>
+                        - Cocina una sopa con calabaza, apio, zanahoria y puerro. Tritura o deja en trozos.<br>
+                        - Acompaña con filetes de pavo a la plancha.<br>
+                </li>
+            </ul>
+            <h3>Sábado</h3>
+            <ul>
+                <li onclick="toggleRecipe(this)"><strong>Comida:</strong> Quinoa con verduras salteadas y pollo.
+                    <div class="recipe">Receta:<br>
+                        - Cocina quinoa y reserva.<br>
+                        - Saltea pimiento, calabacín, champiñones y cebolla.<br>
+                        - Añade pechuga de pollo troceada y mezcla con la quinoa.</div>
+                </li>
+                <li onclick="toggleRecipe(this)"><strong>Cena:</strong> Pizza saludable casera.
+                    <div class="recipe">Receta:<br>
+                        - Usa una base integral o de tortilla de trigo.<br>
+                        - Cubre con tomate triturado, queso mozzarella, champiñones, espinacas y pechuga de pavo.<br>
+                        - Hornea hasta que el queso esté derretido.<br></div>
+                </li>
+            </ul>
+            <h3>Domingo</h3>
+            <ul>
+                <li onclick="toggleRecipe(this)">
+                    <strong>Comida:</strong>
+                    Pisto con huevo a la plancha.
+                    <div class="recipe">
+                        Receta:<br>
+                        - Sofríe pimiento, cebolla, calabacín, berenjena y tomate triturado. Cocina a fuego lento.<br>
+                        - Sirve con un huevo a la plancha encima.<br>
+                    </div>
+                </li>
+                <li onclick="toggleRecipe(this)">
+                    <strong>Cena:</strong> Ensalada César ligera.
+                    <div class="recipe">
+                        Receta:<br>
+                        - Mezcla lechuga romana, pollo a la plancha en tiras, un poco de queso parmesano y picatostes integrales.<br>
+                        - Aliña con yogur natural mezclado con limón, ajo en polvo y mostaza.<br>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="weight-tracker"> 
+            <h2>Seguimiento de Peso</h2>
+                <p>Introduce tu peso para llevar un seguimiento semanal:</p>
+                <input type="date" id="weight-date" required>
+                <input type="number" id="weight-input" placeholder="Peso en kg" step="0.1" required>
+                
+                <button id="add-weight-btn">Añadir Peso</button>
+                <div class="weight-history">
+                    <h3>Historial de Pesos</h3>
+                    <ul id="weight-list"> <!-- Pesos añadidos aparecerán aquí --> </ul>
+                </div>
+                <div>
+                    <canvas id="weightChart" width="400" height="200"></canvas>
+                </div>
+        </section>
+        
+    </div>
+    <footer>
+        <p>Plan diseñado para mejorar tu bienestar. ¡Paso a paso se logran grandes cambios!</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Asegúrate de reemplazar estas variables con tus credenciales reales de Supabase
+            const supabaseUrl = 'https://vkpihntirtniverucyym.supabase.co'; // Cambia por tu URL
+            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrcGlobnRpcnRuaXZlcnVjeXltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzczMTM1NzMsImV4cCI6MjA1Mjg4OTU3M30.0V2L-NfyVvGrpW8eashHB7ussk1mhBMykI7ZxqBypgk'; // Cambia por tu clave pública
+            const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+            const weightDateInput = document.getElementById('weight-date');
+            const weightInput = document.getElementById('weight-input');
+            const addWeightBtn = document.getElementById('add-weight-btn');
+            const weightsTable = document.getElementById('weight-list');
+            const weightChartCtx = document.getElementById('weightChart').getContext('2d');
+            
+            const today = new Date();
+            const formattedDate = today.toISOString().split('T')[0]; // Formato: YYYY-MM-DD
+            weightDateInput.value = formattedDate;
+
+            let weightChart; // Referencia para el gráfico
+    
+            async function saveWeight(weight, date) {
+                const { data, error } = await supabase.from('weights').insert([
+                    { weight, date }
+                ]);
+                if (error) {
+                    console.error('Error al guardar peso:', error.message);
+                    alert('No se pudo guardar el peso. Revisa la consola para más detalles.');
+                    return;
+                }
+                console.log('Peso guardado:', data);
+                await loadWeights();
+            }
+    
+            // Cargar los pesos desde Supabase
+            async function loadWeights() {
+                const { data, error } = await supabase.from('weights').select('*').order('date', { ascending: true });
+                if (error) {
+                    console.error('Error al cargar pesos:', error.message);
+                    return;
+                }
+    
+                // Limpiar lista
+                weightsTable.innerHTML = '';
+    
+                // Mostrar datos en la lista
+                data.forEach(({ id, weight, date }) => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${weight} kg - ${new Date(date).toLocaleDateString()}`;
+                    weightsTable.appendChild(listItem);
+                
+          
+              
+                  // Botón de eliminar
+                  const deleteButton = document.createElement('button');
+                  deleteButton.textContent = 'Eliminar';
+                  deleteButton.style.marginLeft = '10px';
+                  deleteButton.addEventListener('click', () => deleteWeight(id));
+          
+                  listItem.appendChild(deleteButton);
+                  weightsTable.appendChild(listItem);
+                });
+          
+              updateChart(data);
+            }
+            
+            async function deleteWeight(id) {
+              const { error } = await supabase.from('weights').delete().eq('id', id);
+          
+              if (error) {
+                  console.error('Error al eliminar el registro:', error.message);
+                  alert('No se pudo eliminar el registro. Inténtalo de nuevo.');
+                  return;
+              }
+          
+              alert('Registro eliminado con éxito.');
+              loadWeights(); // Recargar la lista y gráfica
+            }
+          
+            // Actualizar el gráfico de pesos
+            function updateChart(data) {
+                const labels = data.map(entry => new Date(entry.date).toLocaleDateString());
+                const weights = data.map(entry => parseFloat(entry.weight)); // Asegurarse de que sea numérico
+            
+                console.log('Etiquetas del gráfico:', labels);
+                console.log('Pesos del gráfico:', weights);
+            
+                if (weightChart) {
+                    weightChart.destroy(); // Destruir gráfico existente antes de crear uno nuevo
+                }
+            
+                weightChart = new Chart(weightChartCtx, {
+                    type: 'line',
+                    data: {
+                        labels,
+                        datasets: [{
+                            label: 'Peso (kg)',
+                            data: weights,
+                            borderColor: '#5cb85c',
+                            backgroundColor: 'rgba(92, 184, 92, 0.2)',
+                            borderWidth: 2,
+                            fill: true,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Fecha',
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Peso (kg)',
+                                },
+                                beginAtZero: false
+                            }
+                        }
+                    }
+                });
+            }
+            
+    
+            addWeightBtn.addEventListener('click', async () => {
+                const weight = parseFloat(weightInput.value);
+                const date = weightDateInput.value;
+    
+                if (isNaN(weight) || !date) {
+                    alert('Por favor, introduce un peso y una fecha válidos.');
+                    return;
+                }
+    
+                await saveWeight(weight, date);
+                weightInput.value = '';
+                weightDateInput.value = '';
+            });
+    
+            loadWeights();
+        });
+    </script>
+    <script>
+        function toggleRecipe(element) {
+            const recipe = element.querySelector('.recipe');
+            if (recipe.style.display === 'block') {
+                recipe.style.display = 'none';
+            } else {
+                recipe.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
