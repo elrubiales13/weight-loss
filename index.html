@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,12 +16,14 @@
             background-color: #f4f4f9;
             color: #333;
         }
+
         header {
             background: #5cb85c;
             color: #fff;
             padding: 1rem 0;
             text-align: center;
         }
+
         .container {
             width: 90%;
             max-width: 800px;
@@ -30,14 +33,47 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        h1 { color: #ffffff; }
-        h2, h3 { color: #5cb85c; }
-        h4 { margin: 0.8rem 0 0.3rem; }
-        section { margin-bottom: 2rem; }
-        ul { list-style: none; padding: 0; }
-        table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }
-        th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; font-size: 0.95rem; }
-        th { background: #f0f0f0; }
+
+        h1 {
+            color: #ffffff;
+        }
+
+        h2,
+        h3 {
+            color: #5cb85c;
+        }
+
+        h4 {
+            margin: 0.8rem 0 0.3rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: #f0f0f0;
+        }
+
         .day-card {
             background: #fdfdfd;
             border: 1px solid #ddd;
@@ -45,12 +81,38 @@
             margin: 0.8rem 0;
             padding: 0.8rem 1rem;
         }
-        .day-card h3 { margin: 0 0 0.5rem; }
-        .meal { margin: 0.3rem 0; padding-left: 1rem; }
-        .meal strong { color: #333; }
-        .note { font-style: italic; color: #666; font-size: 0.9rem; }
-        .flex-note { color: #4cae4c; font-size: 0.9rem; }
-        .tab-buttons { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+
+        .day-card h3 {
+            margin: 0 0 0.5rem;
+        }
+
+        .meal {
+            margin: 0.3rem 0;
+            padding-left: 1rem;
+        }
+
+        .meal strong {
+            color: #333;
+        }
+
+        .note {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .flex-note {
+            color: #4cae4c;
+            font-size: 0.9rem;
+        }
+
+        .tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
         .tab-buttons button {
             background: #e8f5e9;
             color: #388e3c;
@@ -60,9 +122,20 @@
             cursor: pointer;
             width: auto;
         }
-        .tab-buttons button.active { background: #5cb85c; color: #fff; }
-        .week-panel { display: none; }
-        .week-panel.active { display: block; }
+
+        .tab-buttons button.active {
+            background: #5cb85c;
+            color: #fff;
+        }
+
+        .week-panel {
+            display: none;
+        }
+
+        .week-panel.active {
+            display: block;
+        }
+
         .shopping {
             background: #f9f9f9;
             border: 1px solid #ddd;
@@ -70,6 +143,7 @@
             margin-top: 1rem;
             padding: 0.8rem;
         }
+
         .rules li {
             background: #f9f9f9;
             margin: 0.5rem 0;
@@ -78,12 +152,191 @@
             border: 1px solid #ddd;
             list-style: none;
         }
-        input, button { margin: 0.5rem 0; padding: 0.5rem; width: calc(100% - 1rem); border: 1px solid #ddd; border-radius: 5px; }
-        #add-weight-btn { background: #5cb85c; color: #fff; border: none; cursor: pointer; }
-        #add-weight-btn:hover { background: #4cae4c; }
-        footer { text-align: center; padding: 1rem; background: #333; color: #fff; margin-top: 2rem; }
+
+        input,
+        button {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            width: calc(100% - 1rem);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #add-weight-btn {
+            background: #5cb85c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #add-weight-btn:hover {
+            background: #4cae4c;
+        }
+
+        /* ================= CONTROL DE CAFÉ ================= */
+        .coffee-tracker {
+            margin-bottom: 2rem;
+        }
+
+        .coffee-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 1.2rem 0;
+        }
+
+        .coffee-stat-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .coffee-stat-card .stat-title {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .coffee-stat-card .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .coffee-stat-card .stat-unit {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.2rem;
+        }
+
+        .coffee-controls-container {
+            background: #fdfdfd;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .coffee-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: 0.8rem 0;
+        }
+
+        .coffee-controls button.coffee-btn {
+            background: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 46px !important;
+            height: 46px !important;
+            min-width: 46px;
+            max-width: 46px;
+            font-size: 1.6rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.1s;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            line-height: 1;
+        }
+
+        .coffee-controls button.coffee-btn:hover {
+            background: #4cae4c;
+            transform: scale(1.05);
+        }
+
+        .coffee-controls button.coffee-btn:active {
+            transform: scale(0.95);
+        }
+
+        .coffee-controls button.coffee-btn.btn-minus {
+            background: #e0e0e0;
+            color: #444;
+        }
+
+        .coffee-controls button.coffee-btn.btn-minus:hover {
+            background: #d4d4d4;
+            color: #111;
+        }
+
+        .coffee-count-display {
+            font-size: 2.4rem;
+            font-weight: bold;
+            min-width: 60px;
+            text-align: center;
+            color: #333;
+        }
+
+        .coffee-feedback-msg {
+            padding: 0.9rem 1.2rem;
+            border-radius: 8px;
+            margin: 1rem 0 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .coffee-feedback-msg.success {
+            background-color: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            color: #2e7d32;
+        }
+
+        .coffee-feedback-msg.warning {
+            background-color: #ffebee;
+            border: 1px solid #ef9a9a;
+            color: #c62828;
+        }
+
+        .coffee-feedback-msg.info {
+            background-color: #e3f2fd;
+            border: 1px solid #90caf9;
+            color: #1565c0;
+        }
+
+        .coffee-date-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .coffee-date-row label {
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .coffee-date-row input[type="date"] {
+            width: auto;
+            min-width: 170px;
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: #fff;
+            margin-top: 2rem;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Plan Mensual de Pérdida de Peso (4 semanas) — v3</h1>
@@ -94,42 +347,77 @@
         <section>
             <h2>Objetivos numéricos diarios</h2>
             <table>
-                <tr><th>Métrica</th><th>Valor</th></tr>
-                <tr><td>Calorías</td><td>1.800–1.900 kcal (incluye el café con leche)</td></tr>
-                <tr><td>Proteína</td><td>140–150 g (1,6 g/kg)</td></tr>
-                <tr><td>Carbohidratos</td><td>~160–180 g</td></tr>
-                <tr><td>Grasas</td><td>~60–70 g</td></tr>
-                <tr><td>Verduras</td><td>mínimo 400 g/día</td></tr>
-                <tr><td>Agua</td><td>2–2,5 L</td></tr>
-                <tr><td>Café</td><td>máx. 3/día, sin azúcar</td></tr>
-                <tr><td>Postre dulce elaborado</td><td>máx. 1 vez/semana (fin de semana)</td></tr>
+                <tr>
+                    <th>Métrica</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>Calorías</td>
+                    <td>1.800–1.900 kcal (incluye el café con leche)</td>
+                </tr>
+                <tr>
+                    <td>Proteína</td>
+                    <td>140–150 g (1,6 g/kg)</td>
+                </tr>
+                <tr>
+                    <td>Carbohidratos</td>
+                    <td>~160–180 g</td>
+                </tr>
+                <tr>
+                    <td>Grasas</td>
+                    <td>~60–70 g</td>
+                </tr>
+                <tr>
+                    <td>Verduras</td>
+                    <td>mínimo 400 g/día</td>
+                </tr>
+                <tr>
+                    <td>Agua</td>
+                    <td>2–2,5 L</td>
+                </tr>
+                <tr>
+                    <td>Café</td>
+                    <td>máx. 3/día, sin azúcar</td>
+                </tr>
+                <tr>
+                    <td>Postre dulce elaborado</td>
+                    <td>máx. 1 vez/semana (fin de semana)</td>
+                </tr>
             </table>
             <p class="note">Pesaje: 1 vez por semana, en ayunas, mismo día y hora. Esperado: −0,4 a −0,6 kg/semana.
-            Si a las 3 semanas no baja, quitar en este orden: 1º el café con leche extra (−90 kcal),
-            2º la fruta de media mañana (−80 kcal), 3º 10 g de pan en la cena (−25 kcal).</p>
+                Si a las 3 semanas no baja, quitar en este orden: 1º el café con leche extra (−90 kcal),
+                2º la fruta de media mañana (−80 kcal), 3º 10 g de pan en la cena (−25 kcal).</p>
         </section>
 
         <!-- ================= REGCLAS ================= -->
         <section>
             <h2>Reglas que resuelven las dudas frecuentes</h2>
             <ul class="rules">
-                <li><strong>Postres.</strong> El postre listado cada día es <em>tras la cena</em>. Tras la comida hay postre
-                opcional: <strong>fruta entera</strong> (la misma fruta de media mañana cambiada de momento, no se suma).
-                Un segundo postre diario supone +0,4–0,8 kg al mes.</li>
-                <li><strong>Café con leche.</strong> Todos los días, junto al desayuno: café con leche <strong>desnatada</strong>
-                (250 ml, ~90 kcal, 8 g proteína). Ya está dentro de las 1.800–1.900 kcal. Sin azúcar.
-                <em>Versión actual:</em> café solo al llegar al trabajo (~0 kcal, sin impacto) + café con leche desnatada
-                sin lactosa tras la siesta (~90 kcal extra no contabilizados). Total 3 cafés/día: cumple el límite,
-                pero ese segundo café con leche consume el primer recorte previsto si el peso se estanca.</li>
+                <li><strong>Postres.</strong> El postre listado cada día es <em>tras la cena</em>. Tras la comida hay
+                    postre
+                    opcional: <strong>fruta entera</strong> (la misma fruta de media mañana cambiada de momento, no se
+                    suma).
+                    Un segundo postre diario supone +0,4–0,8 kg al mes.</li>
+                <li><strong>Café con leche.</strong> Todos los días, junto al desayuno: café con leche
+                    <strong>desnatada</strong>
+                    (250 ml, ~90 kcal, 8 g proteína). Ya está dentro de las 1.800–1.900 kcal. Sin azúcar.
+                    <em>Versión actual:</em> café solo al llegar al trabajo (~0 kcal, sin impacto) + café con leche
+                    desnatada
+                    sin lactosa tras la siesta (~90 kcal extra no contabilizados). Total 3 cafés/día: cumple el límite,
+                    pero ese segundo café con leche consume el primer recorte previsto si el peso se estanca.
+                </li>
                 <li><strong>Merienda de tarde (16:30–17:30).</strong> El hueco comida (15:30) → cena (21:00) es largo.
-                Opción A: mover el tentempié de media mañana a esta franja. Opción B: café con leche desnatada + 1 fruta
-                o 1 yogur natural (los dos opciones son intercambiables con la media mañana, no se suman).
-                El café solo NO es suficiente para aguantar hasta la cena estudiando.</li>
-                <li><strong>Sustitución de nueces.</strong> 10 nueces (13 g) ≈ 15 almendras (18 g) ≈ 20 g pipas de calabaza
-                ≈ 20 g semillas de girasol ≈ 12 g chía. Todas ~80–110 kcal.</li>
-                <li><strong>AOVE (1 cda o 1 cdta).</strong> La cucharada indicada es el <em>total</em> de aceite de esa comida,
-                ya sea en crudo (ensaladas, vinagretas) o para cocinar (plancha, wok, salteado, horno, cremas).
-                No se añade otra encima. 1 cdta = 5 ml (~45 kcal); 1 cda = 10 ml (~90 kcal).</li>
+                    Opción A: mover el tentempié de media mañana a esta franja. Opción B: café con leche desnatada + 1
+                    fruta
+                    o 1 yogur natural (los dos opciones son intercambiables con la media mañana, no se suman).
+                    El café solo NO es suficiente para aguantar hasta la cena estudiando.</li>
+                <li><strong>Sustitución de nueces.</strong> 10 nueces (13 g) ≈ 15 almendras (18 g) ≈ 20 g pipas de
+                    calabaza
+                    ≈ 20 g semillas de girasol ≈ 12 g chía. Todas ~80–110 kcal.</li>
+                <li><strong>AOVE (1 cda o 1 cdta).</strong> La cucharada indicada es el <em>total</em> de aceite de esa
+                    comida,
+                    ya sea en crudo (ensaladas, vinagretas) o para cocinar (plancha, wok, salteado, horno, cremas).
+                    No se añade otra encima. 1 cdta = 5 ml (~45 kcal); 1 cda = 10 ml (~90 kcal).</li>
             </ul>
         </section>
 
@@ -139,11 +427,14 @@
             <ul class="rules">
                 <li><strong>06:30</strong> — Desayuno en casa (según menú) + café con leche desnatada.</li>
                 <li><strong>Llegada al trabajo</strong> — Café solo, sin azúcar.</li>
-                <li><strong>08:10 – 09:00</strong> — Deporte en el trabajo: carrera continua, series, fuerza o vóleybol.</li>
-                <li><strong>09:00</strong> — Post-entrenamiento: fruta con yogur o huevo cocido (media mañana del menú).</li>
+                <li><strong>08:10 – 09:00</strong> — Deporte en el trabajo: carrera continua, series, fuerza o vóleybol.
+                </li>
+                <li><strong>09:00</strong> — Post-entrenamiento: fruta con yogur o huevo cocido (media mañana del menú).
+                </li>
                 <li><strong>15:30</strong> — Comida: platos del menú (proteína + carbohidrato + verduras).</li>
                 <li><strong>16:00</strong> — Siesta: máximo 20–30 minutos.</li>
-                <li><strong>16:30</strong> — Tras la siesta: café con leche desnatada sin lactosa + fruta o yogur (merienda).</li>
+                <li><strong>16:30</strong> — Tras la siesta: café con leche desnatada sin lactosa + fruta o yogur
+                    (merienda).</li>
                 <li><strong>18:00 – 21:00</strong> — Labores del hogar, estudios y compras.</li>
                 <li><strong>21:00</strong> — Cena ligera + postre del día (tras la cena).</li>
                 <li><strong>23:00</strong> — Dormir: reducir pantallas 30–60 min antes.</li>
@@ -162,134 +453,382 @@
 
             <!-- ===== SEMANA 1 ===== -->
             <div class="week-panel active" id="s1">
-                <div class="day-card"><h3>Lunes</h3>
-                    <p class="meal"><strong>Desayuno:</strong> Avena cocida (60 g en seco) con leche semidesnatada (200 ml), 1 plátano pequeño (120 g) y canela.</p>
+                <div class="day-card">
+                    <h3>Lunes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Avena cocida (60 g en seco) con leche semidesnatada (200
+                        ml), 1 plátano pequeño (120 g) y canela.</p>
                     <p class="meal"><strong>Media mañana:</strong> 1 manzana (150 g) + 15 almendras (18 g).</p>
-                    <p class="meal"><strong>Comida:</strong> Pechuga de pollo a la plancha (180 g) + arroz integral (70 g en seco) + brócoli al vapor (200 g) + 1 cda de AOVE.</p>
-                    <p class="meal"><strong>Cena:</strong> Merluza al horno (200 g) con patata cocida (150 g) y ensalada de tomate (150 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Pechuga de pollo a la plancha (180 g) + arroz integral (70
+                        g en seco) + brócoli al vapor (200 g) + 1 cda de AOVE.</p>
+                    <p class="meal"><strong>Cena:</strong> Merluza al horno (200 g) con patata cocida (150 g) y ensalada
+                        de tomate (150 g).</p>
                     <p class="meal"><strong>Postre (tras la cena):</strong> 1 yogur natural sin azúcar (125 g).</p>
                 </div>
-                <div class="day-card"><h3>Martes</h3>
-                    <p class="meal"><strong>Desayuno:</strong> 2 tostadas de pan integral (60 g) con tomate rallado (50 g), AOVE (1 cdta) y queso fresco batido 0% (50 g). Café con leche desnatada.</p>
+                <div class="day-card">
+                    <h3>Martes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> 2 tostadas de pan integral (60 g) con tomate rallado (50
+                        g), AOVE (1 cdta) y queso fresco batido 0% (50 g). Café con leche desnatada.</p>
                     <p class="meal"><strong>Media mañana:</strong> 1 pera (150 g) + 1 yogur natural.</p>
-                    <p class="meal"><strong>Comida:</strong> Lentejas estofadas (150 g cocidas) con verduras (200 g: zanahoria, puerro, pimiento).</p>
-                    <p class="meal"><strong>Cena:</strong> Tortilla francesa de 2 huevos + 1 clara, con espinacas (150 g) y champiñones (100 g); 1 rebanada de pan integral (30 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Lentejas estofadas (150 g cocidas) con verduras (200 g:
+                        zanahoria, puerro, pimiento).</p>
+                    <p class="meal"><strong>Cena:</strong> Tortilla francesa de 2 huevos + 1 clara, con espinacas (150
+                        g) y champiñones (100 g); 1 rebanada de pan integral (30 g).</p>
                     <p class="meal"><strong>Postre (tras la cena):</strong> 1 naranja (150 g).</p>
                 </div>
-                <div class="day-card"><h3>Miércoles</h3>
-                    <p class="meal"><strong>Desayuno:</strong> Yogur griego natural (200 g) con 40 g de avena, 15 g de semillas de calabaza y ½ manzana (80 g) troceada.</p>
+                <div class="day-card">
+                    <h3>Miércoles</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Yogur griego natural (200 g) con 40 g de avena, 15 g de
+                        semillas de calabaza y ½ manzana (80 g) troceada.</p>
                     <p class="meal"><strong>Media mañana:</strong> Café + 1 tostada integral (30 g) con pavo (30 g).</p>
-                    <p class="meal"><strong>Comida:</strong> Pasta integral (70 g en seco) con atún al natural (2 latas, 160 g escurridos) y tomate triturado (100 g) + ensalada verde (150 g).</p>
-                    <p class="meal"><strong>Cena:</strong> Crema de calabacín (calabacín 300 g, patata 80 g, 1 cdta AOVE) + filete de pavo a la plancha (120 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Pasta integral (70 g en seco) con atún al natural (2 latas,
+                        160 g escurridos) y tomate triturado (100 g) + ensalada verde (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de calabacín (calabacín 300 g, patata 80 g, 1 cdta
+                        AOVE) + filete de pavo a la plancha (120 g).</p>
                     <p class="meal"><strong>Postre (tras la cena):</strong> 1 kiwi (100 g).</p>
                 </div>
-                <div class="day-card"><h3>Jueves</h3>
-                    <p class="meal"><strong>Desayuno:</strong> Revuelto de 2 huevos + 1 clara con champiñones (100 g); 1 tostada integral (40 g); café con leche desnatada.</p>
-                    <p class="meal"><strong>Media mañana:</strong> 1 plátano pequeño (120 g) + 20 g de cacahuetes naturales sin sal.</p>
-                    <p class="meal"><strong>Comida:</strong> Ternera a la plancha magra (150 g) + puré de patata (180 g, hecho con leche desnatada 50 ml) + judías verdes (150 g).</p>
-                    <p class="meal"><strong>Cena:</strong> Ensalada de garbanzos (150 g cocidos) con tomate (100 g), pepino (100 g), atún (1 lata, 80 g) y vinagreta ligera (1 cda AOVE).</p>
+                <div class="day-card">
+                    <h3>Jueves</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Revuelto de 2 huevos + 1 clara con champiñones (100 g); 1
+                        tostada integral (40 g); café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 plátano pequeño (120 g) + 20 g de cacahuetes
+                        naturales sin sal.</p>
+                    <p class="meal"><strong>Comida:</strong> Ternera a la plancha magra (150 g) + puré de patata (180 g,
+                        hecho con leche desnatada 50 ml) + judías verdes (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Ensalada de garbanzos (150 g cocidos) con tomate (100 g),
+                        pepino (100 g), atún (1 lata, 80 g) y vinagreta ligera (1 cda AOVE).</p>
                     <p class="meal"><strong>Postre (tras la cena):</strong> Yogur natural sin azúcar (125 g).</p>
                 </div>
-                <div class="day-card"><h3>Viernes</h3>
-                    <p class="meal"><strong>Desayuno:</strong> Batido de avena (50 g) con leche desnatada (250 ml), fresas congeladas (100 g) y 1 medida de proteína en polvo (opcional, ~120 kcal).</p>
+                <div class="day-card">
+                    <h3>Viernes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Batido de avena (50 g) con leche desnatada (250 ml),
+                        fresas congeladas (100 g) y 1 medida de proteína en polvo (opcional, ~120 kcal).</p>
                     <p class="meal"><strong>Media mañana:</strong> 1 pera (150 g) + queso fresco batido 0% (150 g).</p>
-                    <p class="meal"><strong>Comida:</strong> Salmón a la plancha (150 g) + quinoa (60 g en seco) + pimientos asados (150 g).</p>
-                    <p class="meal"><strong>Cena:</strong> Pizza casera: base fina integral (50 g), tomate triturado (50 g), mozzarella light (50 g), atún (40 g escurrido), orégano + ensalada verde (150 g).</p>
-                    <p class="meal"><strong>Postre (tras la cena):</strong> 1 manzana asada (150 g) con canela, sin azúcar.</p>
+                    <p class="meal"><strong>Comida:</strong> Salmón a la plancha (150 g) + quinoa (60 g en seco) +
+                        pimientos asados (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Pizza casera: base fina integral (50 g), tomate triturado (50
+                        g), mozzarella light (50 g), atún (40 g escurrido), orégano + ensalada verde (150 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> 1 manzana asada (150 g) con canela, sin
+                        azúcar.</p>
                 </div>
-                <div class="day-card"><h3>Sábado</h3>
-                    <p class="meal"><strong>Desayuno:</strong> Tostada integral (60 g) con aguacate (70 g) y huevo pochado (1); café con leche desnatada.</p>
+                <div class="day-card">
+                    <h3>Sábado</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Tostada integral (60 g) con aguacate (70 g) y huevo
+                        pochado (1); café con leche desnatada.</p>
                     <p class="meal"><strong>Media mañana:</strong> Yogur natural + 1 puñado de frutos rojos (50 g).</p>
-                    <p class="meal"><strong>Comida:</strong> Arroz con marisco ligero: arroz (70 g en seco) con calamares y gambas (150 g) + ensalada mixta (150 g).</p>
-                    <p class="meal"><strong>Cena:</strong> Crema de verduras variadas (300 g: puerro, zanahoria, calabacín) + tortilla francesa de 2 huevos.</p>
-                    <p class="meal"><strong>Postre (fin de semana):</strong> Mousse de yogur con cacao puro sin azúcar: yogur griego 125 g + cacao 5 g + edulcorante.</p>
+                    <p class="meal"><strong>Comida:</strong> Arroz con marisco ligero: arroz (70 g en seco) con
+                        calamares y gambas (150 g) + ensalada mixta (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de verduras variadas (300 g: puerro, zanahoria,
+                        calabacín) + tortilla francesa de 2 huevos.</p>
+                    <p class="meal"><strong>Postre (fin de semana):</strong> Mousse de yogur con cacao puro sin azúcar:
+                        yogur griego 125 g + cacao 5 g + edulcorante.</p>
                 </div>
-                <div class="day-card"><h3>Domingo</h3>
-                    <p class="meal"><strong>Desayuno:</strong> Pancakes de avena (50 g) + 1 huevo + ½ plátano pequeño (60 g), con yogur natural (125 g) y fresas (50 g). Café con leche desnatada.</p>
+                <div class="day-card">
+                    <h3>Domingo</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Pancakes de avena (50 g) + 1 huevo + ½ plátano pequeño
+                        (60 g), con yogur natural (125 g) y fresas (50 g). Café con leche desnatada.</p>
                     <p class="meal"><strong>Media mañana:</strong> 1 fruta de temporada (150 g).</p>
-                    <p class="meal"><strong>Comida:</strong> Pollo al horno (180 g) con patatas asadas (180 g, 1 cda AOVE) y ensalada mixta (200 g).</p>
-                    <p class="flex-note">(Comida libre flexible: puede sustituirse por una comida fuera, plato único + fruta.)</p>
-                    <p class="meal"><strong>Cena:</strong> Sopa de fideos finos (30 g) + merluza (180 g) con verduras salteadas (150 g, 1 cdta AOVE).</p>
-                    <p class="meal"><strong>Postre (tras la cena):</strong> Gelatina sin azúcar + 1 yogur natural (125 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Pollo al horno (180 g) con patatas asadas (180 g, 1 cda
+                        AOVE) y ensalada mixta (200 g).</p>
+                    <p class="flex-note">(Comida libre flexible: puede sustituirse por una comida fuera, plato único +
+                        fruta.)</p>
+                    <p class="meal"><strong>Cena:</strong> Sopa de fideos finos (30 g) + merluza (180 g) con verduras
+                        salteadas (150 g, 1 cdta AOVE).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Gelatina sin azúcar + 1 yogur natural (125
+                        g).</p>
                 </div>
                 <div class="shopping">
                     <h4>🛒 Lista de la compra — Semana 1</h4>
-                    <p><strong>Proteínas y lácteos:</strong> pechuga de pollo 450 g · filetes de pavo 200 g · ternera magra 160 g · merluza 450 g · salmón 160 g · calamares/gambas 180 g · atún en lata 3 latas · huevos 10 · yogur natural sin azúcar 8 uds · yogur griego 330 g · queso fresco batido 0% 250 g · leche desnatada 2 L · mozzarella light 50 g.</p>
-                    <p><strong>Despensa:</strong> avena 160 g · arroz integral 140 g · pasta integral 70 g · quinoa 60 g · lentejas 70 g (secas) · garbanzos cocidos 1 bote · pan integral 1 barra pequeña (~200 g) · tomate triturado 1 bote pequeño · cacahuetes naturales 40 g · almendras 30 g · semillas de calabaza 20 g · cacao puro · gelatina sin azúcar · vinagre · especies.</p>
-                    <p><strong>Frutas:</strong> plátanos pequeños 2 · manzanas 2 · peras 2 · naranja 1 · kiwi 1 · fresas 150 g (frescas o congeladas) · frutos rojos 50 g · aguacate 1 · limón 1.</p>
-                    <p><strong>Verduras:</strong> brócoli 200 g · calabacín 2 (~400 g) · espinacas 150 g · champiñones 250 g · judías verdes 150 g · pimientos 250 g · tomates maduros 400 g · lechuga/canónigos 500 g · pepino 1 · puerro 2 · zanahorias 300 g · patatas 700 g · cebolla 2.</p>
+                    <p><strong>Proteínas y lácteos:</strong> pechuga de pollo 450 g · filetes de pavo 200 g · ternera
+                        magra 160 g · merluza 450 g · salmón 160 g · calamares/gambas 180 g · atún en lata 3 latas ·
+                        huevos 10 · yogur natural sin azúcar 8 uds · yogur griego 330 g · queso fresco batido 0% 250 g ·
+                        leche desnatada 2 L · mozzarella light 50 g.</p>
+                    <p><strong>Despensa:</strong> avena 160 g · arroz integral 140 g · pasta integral 70 g · quinoa 60 g
+                        · lentejas 70 g (secas) · garbanzos cocidos 1 bote · pan integral 1 barra pequeña (~200 g) ·
+                        tomate triturado 1 bote pequeño · cacahuetes naturales 40 g · almendras 30 g · semillas de
+                        calabaza 20 g · cacao puro · gelatina sin azúcar · vinagre · especies.</p>
+                    <p><strong>Frutas:</strong> plátanos pequeños 2 · manzanas 2 · peras 2 · naranja 1 · kiwi 1 · fresas
+                        150 g (frescas o congeladas) · frutos rojos 50 g · aguacate 1 · limón 1.</p>
+                    <p><strong>Verduras:</strong> brócoli 200 g · calabacín 2 (~400 g) · espinacas 150 g · champiñones
+                        250 g · judías verdes 150 g · pimientos 250 g · tomates maduros 400 g · lechuga/canónigos 500 g
+                        · pepino 1 · puerro 2 · zanahorias 300 g · patatas 700 g · cebolla 2.</p>
                 </div>
             </div>
 
             <!-- ===== SEMANA 2 ===== -->
             <div class="week-panel" id="s2">
-                <div class="day-card"><h3>Lunes</h3>
-                    <p class="meal"><strong>Desayuno:</strong> Kéfir natural (200 ml) con avena (40 g) y chía (10 g).</p>
+                <div class="day-card">
+                    <h3>Lunes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Kéfir natural (200 ml) con avena (40 g) y chía (10 g).
+                    </p>
                     <p class="meal"><strong>Media mañana:</strong> 1 pera (150 g) + café.</p>
-                    <p class="meal"><strong>Comida:</strong> Arroz integral (70 g en seco) con pollo en salsa de tomate casera (180 g de pollo, 100 g de tomate) y calabacín (150 g).</p>
-                    <p class="meal"><strong>Cena:</strong> Salteado de ternera magra (130 g) con pimientos (100 g), cebolla (50 g) y brotes de soja (50 g), 1 cdta AOVE; 1 tostada integral (30 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Arroz integral (70 g en seco) con pollo en salsa de tomate
+                        casera (180 g de pollo, 100 g de tomate) y calabacín (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Salteado de ternera magra (130 g) con pimientos (100 g),
+                        cebolla (50 g) y brotes de soja (50 g), 1 cdta AOVE; 1 tostada integral (30 g).</p>
                     <p class="meal"><strong>Postre (tras la cena):</strong> Yogur natural (125 g).</p>
                 </div>
-                <div class="day-card"><h3>Martes</h3>
-                    <p class="meal"><strong>Desayuno:</strong> 2 tostadas integrales (60 g) con hummus (30 g) y tomate rallado (50 g); café con leche desnatada.</p>
+                <div class="day-card">
+                    <h3>Martes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> 2 tostadas integrales (60 g) con hummus (30 g) y tomate
+                        rallado (50 g); café con leche desnatada.</p>
                     <p class="meal"><strong>Media mañana:</strong> 1 naranja (150 g) + 15 almendras (18 g).</p>
-                    <p class="meal"><strong>Comida:</strong> Garbanzos guisados (150 g cocidos) con espinacas (150 g) y zanahoria (100 g); ensalada verde (100 g).</p>
-                    <p class="meal"><strong>Cena:</strong> Lubina o dorada al horno (200 g) con verduras asadas (200 g: pimiento, calabacín, cebolla, 1 cda AOVE).</p>
+                    <p class="meal"><strong>Comida:</strong> Garbanzos guisados (150 g cocidos) con espinacas (150 g) y
+                        zanahoria (100 g); ensalada verde (100 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Lubina o dorada al horno (200 g) con verduras asadas (200 g:
+                        pimiento, calabacín, cebolla, 1 cda AOVE).</p>
                     <p class="meal"><strong>Postre (tras la cena):</strong> 1 kiwi (100 g).</p>
                 </div>
-                <div class="day-card"><h3>Miércoles</h3>
-                    <p class="meal"><strong>Desayuno:</strong> Tostada integral (60 g) con aguacate (70 g), jamón serrano (40 g) y tomate (50 g); café.</p>
+                <div class="day-card">
+                    <h3>Miércoles</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Tostada integral (60 g) con aguacate (70 g), jamón
+                        serrano (40 g) y tomate (50 g); café.</p>
                     <p class="meal"><strong>Media mañana:</strong> Yogur natural (125 g) + 1 manzana (150 g).</p>
-                    <p class="meal"><strong>Comida:</strong> Wok de pollo (180 g) con arroz basmati (70 g en seco) y verduras al wok (200 g: pimiento, brócoli, zanahoria, 1 cdta AOVE).</p>
-                    <p class="meal"><strong>Cena:</strong> Ensalada de quinoa (50 g en seco) con huevo duro (1), tomate (100 g) y atún (80 g escurrido).</p>
-                    <p class="meal"><strong>Postre (tras la cena):</strong> Queso fresco batido 0% (150 g) con canela.</p>
+                    <p class="meal"><strong>Comida:</strong> Wok de pollo (180 g) con arroz basmati (70 g en seco) y
+                        verduras al wok (200 g: pimiento, brócoli, zanahoria, 1 cdta AOVE).</p>
+                    <p class="meal"><strong>Cena:</strong> Ensalada de quinoa (50 g en seco) con huevo duro (1), tomate
+                        (100 g) y atún (80 g escurrido).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Queso fresco batido 0% (150 g) con canela.
+                    </p>
                 </div>
-                <div class="day-card"><h3>Jueves</h3>
-                    <p class="meal"><strong>Desayuno:</strong> Avena fría (overnight oats, 50 g) con leche desnatada (200 ml), cacao puro (5 g) y plátano pequeño (120 g).</p>
+                <div class="day-card">
+                    <h3>Jueves</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Avena fría (overnight oats, 50 g) con leche desnatada
+                        (200 ml), cacao puro (5 g) y plátano pequeño (120 g).</p>
                     <p class="meal"><strong>Media mañana:</strong> Café + 20 g de pipas de calabaza.</p>
-                    <p class="meal"><strong>Comida:</strong> Lomo de cerdo magro a la plancha (150 g) + patata cocida (150 g) + puerro (50 g) y zanahoria (100 g) salteados.</p>
-                    <p class="meal"><strong>Cena:</strong> Crema de puerros (puerro 150 g, patata 80 g) + salmón al horno (130 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Lomo de cerdo magro a la plancha (150 g) + patata cocida
+                        (150 g) + puerro (50 g) y zanahoria (100 g) salteados.</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de puerros (puerro 150 g, patata 80 g) + salmón al
+                        horno (130 g).</p>
                     <p class="meal"><strong>Postre (tras la cena):</strong> 1 pera (150 g).</p>
                 </div>
-                <div class="day-card"><h3>Viernes</h3>
-                    <p class="meal"><strong>Desayuno:</strong> Yogur griego (200 g) con granola sin azúcar (30 g) y frutos rojos (50 g).</p>
+                <div class="day-card">
+                    <h3>Viernes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Yogur griego (200 g) con granola sin azúcar (30 g) y
+                        frutos rojos (50 g).</p>
                     <p class="meal"><strong>Media mañana:</strong> 1 tostada con pavo (30 g) + café.</p>
-                    <p class="meal"><strong>Comida:</strong> Fideuá de verduras y gambas (fideos 70 g, gambas 100 g, verduras 150 g) + ensalada verde (150 g).</p>
-                    <p class="meal"><strong>Cena:</strong> Tortilla de patata al horno con poco aceite: 2 huevos + patata (120 g) + ensalada verde (150 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Fideuá de verduras y gambas (fideos 70 g, gambas 100 g,
+                        verduras 150 g) + ensalada verde (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Tortilla de patata al horno con poco aceite: 2 huevos +
+                        patata (120 g) + ensalada verde (150 g).</p>
                     <p class="meal"><strong>Postre (tras la cena):</strong> Gelatina sin azúcar.</p>
                 </div>
-                <div class="day-card"><h3>Sábado</h3>
-                    <p class="meal"><strong>Desayuno:</strong> Wrap integral pequeño (40 g) con huevo revuelto (2 huevos) y espinacas (50 g); café con leche desnatada.</p>
+                <div class="day-card">
+                    <h3>Sábado</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Wrap integral pequeño (40 g) con huevo revuelto (2
+                        huevos) y espinacas (50 g); café con leche desnatada.</p>
                     <p class="meal"><strong>Media mañana:</strong> 1 plátano pequeño (120 g) + 10 almendras (12 g).</p>
-                    <p class="meal"><strong>Comida:</strong> Arroz con pollo y verduras (paella casera ligera: arroz 70 g, pollo 150 g, verduras 150 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Arroz con pollo y verduras (paella casera ligera: arroz 70
+                        g, pollo 150 g, verduras 150 g).</p>
                     <p class="flex-note">(Puede comerse fuera: plato único, postre fruta.)</p>
-                    <p class="meal"><strong>Cena:</strong> Hamburguesa casera en pan integral (60 g): carne magra (120 g), queso light (20 g), lechuga, tomate + boniato asado (120 g).</p>
-                    <p class="meal"><strong>Postre (fin de semana):</strong> Helado casero: 1 plátano congelado (120 g) batido + canela.</p>
+                    <p class="meal"><strong>Cena:</strong> Hamburguesa casera en pan integral (60 g): carne magra (120
+                        g), queso light (20 g), lechuga, tomate + boniato asado (120 g).</p>
+                    <p class="meal"><strong>Postre (fin de semana):</strong> Helado casero: 1 plátano congelado (120 g)
+                        batido + canela.</p>
                 </div>
-                <div class="day-card"><h3>Domingo</h3>
-                    <p class="meal"><strong>Desayuno:</strong> Huevo pochado (1) sobre tostada integral (60 g) con yogur (50 g) y limón; café con leche desnatada.</p>
+                <div class="day-card">
+                    <h3>Domingo</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Huevo pochado (1) sobre tostada integral (60 g) con yogur
+                        (50 g) y limón; café con leche desnatada.</p>
                     <p class="meal"><strong>Media mañana:</strong> 1 fruta de temporada (150 g).</p>
-                    <p class="meal"><strong>Comida:</strong> Guiso de ternera magra (150 g) con patatas (150 g) y zanahoria (100 g).</p>
-                    <p class="meal"><strong>Cena:</strong> Crema de champiñones (champiñones 250 g, patata 80 g) + revuelto de 2 huevos con gambas (80 g) y calabacín (100 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Guiso de ternera magra (150 g) con patatas (150 g) y
+                        zanahoria (100 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de champiñones (champiñones 250 g, patata 80 g) +
+                        revuelto de 2 huevos con gambas (80 g) y calabacín (100 g).</p>
                     <p class="meal"><strong>Postre (tras la cena):</strong> Yogur natural (125 g).</p>
                 </div>
                 <div class="shopping">
                     <h4>🛒 Lista de la compra — Semana 2</h4>
-                    <p class="note">Pendiente de incorporar desde el documento original (v2). Mantener mientras tanto la lista de la Semana 1 ajustando las cantidades según lo consumido.</p>
+                    <p><strong>Proteínas y lácteos:</strong> pechuga de pollo 350 g · ternera magra 300 g · lomo de cerdo magro 160 g · lubina/dorada 220 g · salmón 140 g · gambas 200 g · jamón serrano 40 g · pavo en filetes 60 g · atún 1 lata · huevos 12 · yogur natural 5 uds · yogur griego 200 g · queso fresco batido 0% 150 g · kéfir natural 200 ml · leche desnatada 2 L · queso light 20 g · hummus 30 g.</p>
+                    <p><strong>Despensa:</strong> avena 90 g · arroz integral 70 g · arroz basmati 140 g · fideos 70 g · quinoa 50 g · pan integral 1 barra pequeña (~180 g) · wrap integral 1 ud · granola sin azúcar 30 g · chía 10 g · pipas de calabaza 20 g · almendras 30 g · cacao puro · gelatina sin azúcar · tomate triturado 1 bote pequeño.</p>
+                    <p><strong>Frutas:</strong> peras 2 · naranja 1 · manzana 1 · kiwi 1 · plátanos 3 (2 pequeños + 1 congelado) · frutos rojos 100 g · aguacate 1 · limón 1 · fruta de temporada 2 uds.</p>
+                    <p><strong>Verduras:</strong> calabacín 2 (≈450 g) · espinacas 200 g · champiñones 250 g · pimientos 300 g · tomates maduros 350 g · lechuga/canónigos 500 g · brócoli 150 g · puerro 2 · zanahorias 400 g · patatas 500 g · boniato 1 pequeño · cebolla 3.</p>
                 </div>
             </div>
 
             <!-- ===== SEMANA 3 ===== -->
             <div class="week-panel" id="s3">
-                <div class="day-card"><h3>Semana 3</h3>
-                    <p class="note">Contenido pendiente de incorporar desde el documento original (v2), páginas 6–7.</p>
+                <div class="day-card">
+                    <h3>Lunes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Tostadas integrales (60 g) con tomate (50 g), AOVE (1 cdta) y sardinas en aceite escurridas (1 lata, 80 g); café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> Yogur natural (125 g) + 1 pera (150 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Curry de garbanzos (150 g cocidos) con arroz basmati (50 g en seco), pimiento (100 g) y 2 cdta de leche de coco ligera.</p>
+                    <p class="meal"><strong>Cena:</strong> Ensalada templada de lentejas (150 g cocidas) con huevo duro (1), tomate (100 g) y vinagreta (1 cdta AOVE).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> 1 naranja (150 g).</p>
+                </div>
+                <div class="day-card">
+                    <h3>Martes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Bowl de yogur griego (150 g) + avena (40 g) + frutos rojos (50 g) + chía (10 g).</p>
+                    <p class="meal"><strong>Media mañana:</strong> Café + 1 tostada integral (30 g) con pavo (30 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Albóndigas de pavo al horno (160 g de carne) con puré de calabaza (200 g) y judías verdes (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Bacalao a la plancha (180 g) con pisto (150 g: calabacín, tomate, pimiento).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Yogur natural sin azúcar (125 g).</p>
+                </div>
+                <div class="day-card">
+                    <h3>Miércoles</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Avena cocida (60 g) con leche desnatada (200 ml), pera troceada (100 g) y semillas de girasol (15 g).</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 manzana (150 g) + 15 almendras (18 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Pasta integral (70 g en seco) con boloñesa ligera de ternera magra (150 g de carne, 100 g de tomate triturado).</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de zanahoria (zanahoria 250 g, patata 80 g) + tortilla francesa de 2 huevos con atún (40 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> 1 kiwi (100 g).</p>
+                </div>
+                <div class="day-card">
+                    <h3>Jueves</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Tostada integral (60 g) con aguacate (70 g) y tomate (50 g); huevo duro (1); café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> Yogur griego (125 g) con canela.</p>
+                    <p class="meal"><strong>Comida:</strong> Pollo al ajillo (180 g) con patatas al horno (180 g, 1 cdta AOVE) y ensalada mixta (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Wok de tofu firme (150 g) con verduras (150 g) y fideos de arroz (40 g en seco).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Gelatina sin azúcar + 1 fruta (150 g).</p>
+                </div>
+                <div class="day-card">
+                    <h3>Viernes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Burrito de desayuno: tortilla integral (40 g) + 2 huevos revueltos + pico de gallo (80 g: tomate, cebolla, cilantro); café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 pera (150 g) + 12 almendras (15 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Salmón al horno (150 g) con lentejas cocidas (150 g) y espinacas salteadas (100 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Ensalada César ligera: lechuga romana (150 g), pollo a la plancha (130 g), salsa de yogur (50 g) con mostaza, parmesano rallado (5 g) y picatostes caseros (20 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Compota de manzana sin azúcar (150 g).</p>
+                </div>
+                <div class="day-card">
+                    <h3>Sábado</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Yogur griego (200 g) con muesli sin azúcar (30 g) y plátano pequeño (120 g).</p>
+                    <p class="meal"><strong>Media mañana:</strong> Café + 1 fruta (150 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Paella de verduras y pollo (arroz 70 g, pollo 120 g, verduras 150 g).</p>
+                    <p class="flex-note">(Alternativa: comida social — plato único + fruta.)</p>
+                    <p class="meal"><strong>Cena:</strong> Tacos ligeros: 2 tortillas de maíz pequeñas (30 g c/u), ternera magra desmenuzada (120 g), cebolla (30 g), cilantro, salsa de tomate; frijoles negros (60 g escurridos).</p>
+                    <p class="meal"><strong>Postre (fin de semana):</strong> Yogur (125 g) con cacao puro (5 g).</p>
+                </div>
+                <div class="day-card">
+                    <h3>Domingo</h3>
+                    <p class="meal"><strong>Desayuno:</strong> French toast: 2 rebanadas de pan integral (60 g) empapadas en 1 huevo + leche desnatada (100 ml), con fresas (100 g), sin azúcar añadido; café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 fruta (150 g) + 10 almendras (12 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Cocido ligero: garbanzos (150 g cocidos), pollo (120 g), verduras (200 g: patata 80 g, zanahoria, puerro, repollo); sin embutidos ni relleno frito.</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de puerros (puerro 150 g, patata 80 g) + merluza al vapor (180 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Yogur natural (125 g).</p>
+                </div>
+                <div class="shopping">
+                    <h4>🛒 Lista de la compra — Semana 3</h4>
+                    <p><strong>Proteínas y lácteos:</strong> pavo picado/albóndigas 160 g · pavo filetes 60 g · pollo 500 g (ajillo, paella, cocido, César) · ternera magra 280 g · bacalao 180 g · salmón 150 g · merluza 180 g · sardinas 1 lata · atún 1 lata · tofu firme 150 g · huevos 12 · yogur natural 6 uds · yogur griego 500 g · leche desnatada 2 L · parmesano 5 g.</p>
+                    <p><strong>Despensa:</strong> avena 100 g · arroz basmati 120 g · pasta integral 70 g · fideos de arroz 40 g · garbanzos cocidos 2 botes · lentejas cocidas 1 bote grande (300 g) · pan integral 1 barra pequeña (~200 g) · tortillas de maíz 4 uds · tortilla integral 1 ud · muesli sin azúcar 30 g · chía 10 g · semillas de girasol 15 g · almendras 45 g · leche de coco ligera 1 lata pequeña · tomate triturado 1 bote · compota sin azúcar 1 ud · gelatina sin azúcar.</p>
+                    <p><strong>Frutas:</strong> peras 3 · manzanas 2 · naranja 1 · kiwi 1 · plátano pequeño 2 · fresas 100 g · frutos rojos 50 g · aguacate 1 · limón 1 · fruta de temporada 3 uds.</p>
+                    <p><strong>Verduras:</strong> calabaza 250 g · calabacín 2 (≈400 g) · judías verdes 150 g · espinacas 150 g · pimientos 300 g · tomates maduros 400 g · lechuga romana 200 g + canónigos 300 g · puerro 3 · zanahorias 500 g · patatas 600 g · champiñones 100 g · repollo 100 g · cebolla 3 · cilantro 1 manojo.</p>
                 </div>
             </div>
 
             <!-- ===== SEMANA 4 ===== -->
             <div class="week-panel" id="s4">
-                <div class="day-card"><h3>Semana 4</h3>
-                    <p class="note">Contenido pendiente de incorporar desde el documento original (v2), páginas 8–10.</p>
+                <div class="day-card">
+                    <h3>Lunes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Tostada integral (60 g) con tomate (50 g), AOVE (1 cdta) y caballa o melva clara escurrida (1 lata, 80 g); café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 manzana (150 g) + 20 g de cacahuetes naturales.</p>
+                    <p class="meal"><strong>Comida:</strong> Arroz tres delicias casero: arroz (70 g en seco), pollo (150 g), huevo (1), guisantes (50 g), maíz (30 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de calabacín (calabacín 300 g, patata 80 g) + filete de pavo a la plancha (130 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Yogur natural (125 g).</p>
+                </div>
+                <div class="day-card">
+                    <h3>Martes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Overnight oats (50 g) con leche desnatada (200 ml), mango (100 g) y chía (10 g).</p>
+                    <p class="meal"><strong>Media mañana:</strong> Café + 1 tostada integral (30 g) con hummus (30 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Pollo al limón al horno (180 g) con cuscús de verduras (cuscús 50 g en seco, verduras 150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Ensalada de tomate (150 g), mozzarella light (60 g) y albahaca + 1 tostada integral (30 g) + huevo duro (1).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> 1 pera (150 g).</p>
+                </div>
+                <div class="day-card">
+                    <h3>Miércoles</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Yogur griego (200 g) con avena (40 g), chía (10 g) y canela.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 naranja (150 g) + 10 almendras (12 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Pisto (200 g: calabacín, tomate, pimiento) + 2 huevos a la plancha + 1 tostada integral (40 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Dorada al horno (200 g) con ensalada de rúcula (50 g) y tomate (100 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Gelatina sin azúcar.</p>
+                </div>
+                <div class="day-card">
+                    <h3>Jueves</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Tostada integral (60 g) con aguacate (70 g) y huevo revuelto (2 huevos); café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> Yogur natural (125 g) + 1 plátano pequeño (120 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Lasaña ligera de verduras y carne magra (porción de 300 g, bechamel con leche desnatada).</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de espárragos (espárragos verdes 250 g, patata 80 g) + revuelto de 2 huevos con gambas (80 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> 1 kiwi (100 g).</p>
+                </div>
+                <div class="day-card">
+                    <h3>Viernes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Pan integral (60 g) con requesón (80 g) y mermelada sin azúcar (15 g); café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 pera (150 g) + 15 almendras (18 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Fideos con almejas y gambas (fideos 70 g, almejas 100 g, gambas 80 g) + ensalada verde (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Pizza casera fina integral: base (50 g), tomate triturado (50 g), mozzarella light (50 g), atún (40 g), orégano + ensalada grande (200 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Queso batido 0% (150 g) con fresas (50 g).</p>
+                </div>
+                <div class="day-card">
+                    <h3>Sábado</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Wrap integral (40 g) con pavo (40 g), queso light (20 g), lechuga y tomate; café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 manzana (150 g) + 15 g de pipas de calabaza.</p>
+                    <p class="meal"><strong>Comida:</strong> Barbacoa ligera: costillas magras al horno (150 g) o pollo asado (180 g) + patata asada (150 g) + coleslaw con yogur (100 g: col, zanahoria, yogur).</p>
+                    <p class="flex-note">(Alternativa: restaurante — plato único + fruta.)</p>
+                    <p class="meal"><strong>Cena:</strong> Ramen ligero: caldo desgrasado (400 ml), fideos (40 g), huevo duro (1), pak choi (100 g), cebolleta.</p>
+                    <p class="meal"><strong>Postre (fin de semana):</strong> Helado de yogur: yogur griego (125 g) congelado con frutos del bosque (50 g).</p>
+                </div>
+                <div class="day-card">
+                    <h3>Domingo</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Desayuno americano ligero: 2 huevos revueltos, 2 tiras de bacon al horno escurrido (30 g), 1 tostada integral (40 g), tomate (50 g); café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 fruta (150 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Arroz con pollo (paella valenciana ligera: arroz 70 g, pollo 150 g, garrofón/verduras 100 g) + ensalada mixta (150 g).</p>
+                    <p class="flex-note">(Comida libre flexible, sin postre repetido.)</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de verduras (300 g) + tortilla francesa de 2 huevos con espinacas (100 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Yogur natural (125 g).</p>
+                </div>
+                <div class="shopping">
+                    <h4>🛒 Lista de la compra — Semana 4</h4>
+                    <p><strong>Proteínas y lácteos:</strong> pavo filetes 200 g · pollo 350 g · costillas magras 150 g (o pollo asado extra 180 g) · dorada 200 g · bacon 30 g · caballa/melva 1 lata · atún 1 lata · gambas 160 g · almejas 100 g · huevos 14 · yogur natural 5 uds · yogur griego 350 g · queso fresco batido 0% 150 g · requesón 80 g · leche desnatada 2 L · mozzarella light 110 g · queso light 20 g · hummus 30 g.</p>
+                    <p><strong>Despensa:</strong> avena 90 g · arroz 140 g · cuscús 50 g · fideos 110 g · pan integral 1 barra pequeña (~200 g) · wraps integrales 2 uds · mermelada sin azúcar · chía 20 g · pipas de calabaza 15 g · almendras 30 g · cacahuetes 20 g · tomate triturado 1 bote · gelatina sin azúcar.</p>
+                    <p><strong>Frutas:</strong> manzanas 2 · peras 2 · naranja 1 · kiwi 1 · plátano pequeño 1 · mango 1 · fresas 100 g · frutos del bosque 50 g · aguacate 1 · limón 1 · fruta de temporada 2 uds.</p>
+                    <p><strong>Verduras:</strong> calabacín 2 (≈450 g) · espárragos verdes 250 g · rúcula 50 g · espinacas 100 g · lechuga/coleslaw 400 g · pak choi 1 · tomates maduros 450 g · pimientos 200 g · guisantes congelados 50 g · maíz 30 g · puerro 1 · zanahorias 300 g · patatas 500 g · cebolla/cebolleta 3.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTROL DIARIO DE CAFÉ ================= -->
+        <section class="coffee-tracker">
+            <h2>Control Diario de Café y Cafeína</h2>
+            <p>Lleva el registro de los cafés consumidos a lo largo del día. Según tu plan, el límite recomendado es de <strong>máximo 3 cafés/día</strong> (sin azúcar).</p>
+
+            <div class="coffee-date-row">
+                <label for="coffee-date">Fecha seleccionada:</label>
+                <input type="date" id="coffee-date">
+            </div>
+
+            <div class="coffee-controls-container">
+                <div style="font-size: 0.95rem; color: #666; margin-bottom: 0.6rem;">Pulsa para sumar o restar cafés en este día:</div>
+                <div class="coffee-controls">
+                    <button type="button" class="coffee-btn btn-minus" id="coffee-minus-btn" title="Restar café">−</button>
+                    <div class="coffee-count-display" id="coffee-count">0</div>
+                    <button type="button" class="coffee-btn btn-plus" id="coffee-plus-btn" title="Sumar café">+</button>
+                </div>
+
+                <div class="coffee-dashboard">
+                    <div class="coffee-stat-card">
+                        <div class="stat-title">Límite Diario</div>
+                        <div class="stat-value" id="coffee-limit-display">3</div>
+                        <div class="stat-unit">máx. al día</div>
+                    </div>
+                    <div class="coffee-stat-card">
+                        <div class="stat-title">Disponibles / Restantes</div>
+                        <div class="stat-value" id="coffee-remaining-display">3</div>
+                        <div class="stat-unit" id="coffee-remaining-unit">cafés restantes</div>
+                    </div>
+                    <div class="coffee-stat-card">
+                        <div class="stat-title">Cafeína Ingerida</div>
+                        <div class="stat-value" id="caffeine-display">0</div>
+                        <div class="stat-unit">mg estimados (~80 mg/café)</div>
+                    </div>
+                </div>
+
+                <div id="coffee-feedback" class="coffee-feedback-msg info">
+                    ☕ Aún no has registrado ningún café para este día. ¡Tienes 3 disponibles!
+                </div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <h3>Comparativa de Cafés Diarios</h3>
+                <p class="note">Historial de consumo diario en la semana (las barras verdes indican dentro del límite ≤ 3, y las rojas indican exceso &gt; 3):</p>
+                <div style="position: relative; height: 260px;">
+                    <canvas id="coffeeChart"></canvas>
                 </div>
             </div>
         </section>
@@ -426,9 +965,223 @@
                 weightInput.value = '';
             });
 
+            // ================= CONTROL DIARIO DE CAFÉ =================
+            const COFFEE_LIMIT = 3;
+            const CAFFEINE_PER_COFFEE_MG = 80;
+            const COFFEE_STORAGE_KEY = 'daily_coffee_tracker_v1';
+
+            const coffeeDateInput = document.getElementById('coffee-date');
+            const coffeeCountDisplay = document.getElementById('coffee-count');
+            const coffeeLimitDisplay = document.getElementById('coffee-limit-display');
+            const coffeeRemainingDisplay = document.getElementById('coffee-remaining-display');
+            const coffeeRemainingUnit = document.getElementById('coffee-remaining-unit');
+            const caffeineDisplay = document.getElementById('caffeine-display');
+            const coffeeFeedback = document.getElementById('coffee-feedback');
+            const coffeeMinusBtn = document.getElementById('coffee-minus-btn');
+            const coffeePlusBtn = document.getElementById('coffee-plus-btn');
+            const coffeeChartCtx = document.getElementById('coffeeChart').getContext('2d');
+
+            let coffeeChart;
+
+            function formatLocalDate(d) {
+                const year = d.getFullYear();
+                const month = String(d.getMonth() + 1).padStart(2, '0');
+                const day = String(d.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            }
+
+            // Inicializar fecha de hoy en formato local
+            coffeeDateInput.value = formatLocalDate(today);
+
+            function getCoffeeLogs() {
+                try {
+                    return JSON.parse(localStorage.getItem(COFFEE_STORAGE_KEY)) || {};
+                } catch (e) {
+                    console.error('Error al leer cafés de localStorage:', e);
+                    return {};
+                }
+            }
+
+            function saveCoffeeLogs(logs) {
+                try {
+                    localStorage.setItem(COFFEE_STORAGE_KEY, JSON.stringify(logs));
+                } catch (e) {
+                    console.error('Error al guardar cafés en localStorage:', e);
+                }
+            }
+
+            function updateCoffeeUI() {
+                const logs = getCoffeeLogs();
+                const selectedDate = coffeeDateInput.value;
+                const count = logs[selectedDate] || 0;
+                const caffeine = count * CAFFEINE_PER_COFFEE_MG;
+
+                coffeeCountDisplay.textContent = count;
+                coffeeLimitDisplay.textContent = COFFEE_LIMIT;
+                caffeineDisplay.textContent = caffeine;
+
+                const remaining = COFFEE_LIMIT - count;
+
+                if (count > COFFEE_LIMIT) {
+                    const excess = count - COFFEE_LIMIT;
+                    coffeeRemainingDisplay.textContent = `+${excess}`;
+                    coffeeRemainingDisplay.style.color = '#c62828';
+                    coffeeRemainingUnit.textContent = 'de exceso sobre el límite';
+                    coffeeFeedback.className = 'coffee-feedback-msg warning';
+                    coffeeFeedback.innerHTML = `⚠️ <strong>¡Atención! Has superado el límite recomendado.</strong> Llevas <strong>${count} cafés</strong> (+${excess} sobre el máximo diario de ${COFFEE_LIMIT}). Recuerda que el exceso de cafeína o el café con leche adicional puede interferir en tu descanso e incrementar las calorías no contabilizadas.`;
+                } else if (count > 0) {
+                    coffeeRemainingDisplay.textContent = remaining;
+                    coffeeRemainingDisplay.style.color = '#2e7d32';
+                    coffeeRemainingUnit.textContent = remaining === 1 ? 'café restante hoy' : 'cafés restantes hoy';
+                    coffeeFeedback.className = 'coffee-feedback-msg success';
+                    coffeeFeedback.innerHTML = `🎉 <strong>¡Enhorabuena!</strong> Llevas <strong>${count} café${count > 1 ? 's' : ''}</strong> y te mantienes dentro del límite saludable diario (máx. ${COFFEE_LIMIT}). Te queda${remaining === 1 ? '' : 'n'} <strong>${remaining} disponible${remaining === 1 ? '' : 's'}</strong> hoy. ¡Buen trabajo!`;
+                } else {
+                    coffeeRemainingDisplay.textContent = COFFEE_LIMIT;
+                    coffeeRemainingDisplay.style.color = '#333';
+                    coffeeRemainingUnit.textContent = 'cafés restantes hoy';
+                    coffeeFeedback.className = 'coffee-feedback-msg info';
+                    coffeeFeedback.innerHTML = `☕ <strong>Aún no has registrado ningún café para este día.</strong> Dispones de un cupo de hasta <strong>${COFFEE_LIMIT} cafés diarios</strong> recomendados sin azúcar.`;
+                }
+
+                updateCoffeeChart(logs);
+            }
+
+            function updateCoffeeChart(logs) {
+                // Calcular rango de 7 días tomando como referencia la fecha seleccionada o la actual
+                const parts = coffeeDateInput.value.split('-');
+                let anchorDate = new Date(parts[0], parts[1] - 1, parts[2]);
+                if (isNaN(anchorDate.getTime())) {
+                    anchorDate = new Date();
+                }
+                const now = new Date();
+                // Si la fecha seleccionada es pasada, mostramos hasta hoy; si es futura, mostramos hasta esa fecha
+                const endDate = anchorDate > now ? anchorDate : now;
+
+                const labels = [];
+                const counts = [];
+                const backgroundColors = [];
+                const borderColors = [];
+
+                for (let i = 6; i >= 0; i--) {
+                    const d = new Date(endDate);
+                    d.setDate(d.getDate() - i);
+                    const isoKey = formatLocalDate(d);
+
+                    const dayName = d.toLocaleDateString('es-ES', { weekday: 'short' });
+                    const formattedDay = d.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' });
+                    labels.push(`${dayName.charAt(0).toUpperCase() + dayName.slice(1)} ${formattedDay}`);
+
+                    const val = logs[isoKey] || 0;
+                    counts.push(val);
+
+                    if (val > COFFEE_LIMIT) {
+                        backgroundColors.push('rgba(224, 82, 82, 0.75)');
+                        borderColors.push('#c62828');
+                    } else if (val > 0) {
+                        backgroundColors.push('rgba(92, 184, 92, 0.75)');
+                        borderColors.push('#4cae4c');
+                    } else {
+                        backgroundColors.push('rgba(220, 220, 220, 0.4)');
+                        borderColors.push('#ccc');
+                    }
+                }
+
+                if (coffeeChart) {
+                    coffeeChart.destroy();
+                }
+
+                coffeeChart = new Chart(coffeeChartCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Cafés consumidos',
+                            data: counts,
+                            backgroundColor: backgroundColors,
+                            borderColor: borderColors,
+                            borderWidth: 1.5,
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Día'
+                                },
+                                grid: {
+                                    display: false
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                suggestedMax: 4,
+                                ticks: {
+                                    stepSize: 1,
+                                    precision: 0
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Nº Cafés'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        const val = context.raw || 0;
+                                        const mg = val * CAFFEINE_PER_COFFEE_MG;
+                                        return ` ${val} café${val !== 1 ? 's' : ''} (~${mg} mg cafeína)`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            coffeeMinusBtn.addEventListener('click', () => {
+                const logs = getCoffeeLogs();
+                const selectedDate = coffeeDateInput.value;
+                const current = logs[selectedDate] || 0;
+                if (current > 0) {
+                    const nextVal = current - 1;
+                    if (nextVal <= 0) {
+                        delete logs[selectedDate];
+                    } else {
+                        logs[selectedDate] = nextVal;
+                    }
+                    saveCoffeeLogs(logs);
+                    updateCoffeeUI();
+                }
+            });
+
+            coffeePlusBtn.addEventListener('click', () => {
+                const logs = getCoffeeLogs();
+                const selectedDate = coffeeDateInput.value;
+                const current = logs[selectedDate] || 0;
+                logs[selectedDate] = current + 1;
+                saveCoffeeLogs(logs);
+                updateCoffeeUI();
+            });
+
+            coffeeDateInput.addEventListener('change', () => {
+                updateCoffeeUI();
+            });
+
+            // Carga inicial de café
+            updateCoffeeUI();
+
             loadWeights();
         });
     </script>
 </body>
-</html>
 
+</html>
