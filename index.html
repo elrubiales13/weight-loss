@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan de Rutina y Alimentación</title>
+    <title>Plan Mensual de Pérdida de Peso — v3</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    
 
-    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -32,459 +30,368 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        h1{
-            color: #ffffff;
+        h1 { color: #ffffff; }
+        h2, h3 { color: #5cb85c; }
+        h4 { margin: 0.8rem 0 0.3rem; }
+        section { margin-bottom: 2rem; }
+        ul { list-style: none; padding: 0; }
+        table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }
+        th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; font-size: 0.95rem; }
+        th { background: #f0f0f0; }
+        .day-card {
+            background: #fdfdfd;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 0.8rem 0;
+            padding: 0.8rem 1rem;
         }
-        h2, h3 {
-            color: #5cb85c;
+        .day-card h3 { margin: 0 0 0.5rem; }
+        .meal { margin: 0.3rem 0; padding-left: 1rem; }
+        .meal strong { color: #333; }
+        .note { font-style: italic; color: #666; font-size: 0.9rem; }
+        .flex-note { color: #4cae4c; font-size: 0.9rem; }
+        .tab-buttons { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+        .tab-buttons button {
+            background: #e8f5e9;
+            color: #388e3c;
+            border: 1px solid #5cb85c;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            width: auto;
         }
-        section {
-            margin-bottom: 2rem;
+        .tab-buttons button.active { background: #5cb85c; color: #fff; }
+        .week-panel { display: none; }
+        .week-panel.active { display: block; }
+        .shopping {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 1rem;
+            padding: 0.8rem;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
+        .rules li {
             background: #f9f9f9;
             margin: 0.5rem 0;
             padding: 0.8rem;
             border-radius: 5px;
             border: 1px solid #ddd;
-            cursor: pointer;
-            position: relative;
+            list-style: none;
         }
-        li:hover {
-            background: #e6ffe6;
-        }
-        .recipe {
-            display: none;
-            background: #f4f4f4;
-            padding: 0.8rem;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            margin-top: 0.5rem;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #333;
-            color: #fff;
-            margin-top: 2rem;
-        }
-        a {
-            color: #5cb85c;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        input, button {
-            margin: 0.5rem 0;
-            padding: 0.5rem;
-            width: calc(100% - 1rem);
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        button {
-            background: #5cb85c;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #4cae4c;
-        }
+        input, button { margin: 0.5rem 0; padding: 0.5rem; width: calc(100% - 1rem); border: 1px solid #ddd; border-radius: 5px; }
+        #add-weight-btn { background: #5cb85c; color: #fff; border: none; cursor: pointer; }
+        #add-weight-btn:hover { background: #4cae4c; }
+        footer { text-align: center; padding: 1rem; background: #333; color: #fff; margin-top: 2rem; }
     </style>
 </head>
 <body>
     <header>
-        <h1>Plan Personalizado</h1>
+        <h1>Plan Mensual de Pérdida de Peso (4 semanas) — v3</h1>
     </header>
     <div class="container">
+
+        <!-- ================= OBJETIVOS ================= -->
+        <section>
+            <h2>Objetivos numéricos diarios</h2>
+            <table>
+                <tr><th>Métrica</th><th>Valor</th></tr>
+                <tr><td>Calorías</td><td>1.800–1.900 kcal (incluye el café con leche)</td></tr>
+                <tr><td>Proteína</td><td>140–150 g (1,6 g/kg)</td></tr>
+                <tr><td>Carbohidratos</td><td>~160–180 g</td></tr>
+                <tr><td>Grasas</td><td>~60–70 g</td></tr>
+                <tr><td>Verduras</td><td>mínimo 400 g/día</td></tr>
+                <tr><td>Agua</td><td>2–2,5 L</td></tr>
+                <tr><td>Café</td><td>máx. 3/día, sin azúcar</td></tr>
+                <tr><td>Postre dulce elaborado</td><td>máx. 1 vez/semana (fin de semana)</td></tr>
+            </table>
+            <p class="note">Pesaje: 1 vez por semana, en ayunas, mismo día y hora. Esperado: −0,4 a −0,6 kg/semana.
+            Si a las 3 semanas no baja, quitar en este orden: 1º el café con leche extra (−90 kcal),
+            2º la fruta de media mañana (−80 kcal), 3º 10 g de pan en la cena (−25 kcal).</p>
+        </section>
+
+        <!-- ================= REGCLAS ================= -->
+        <section>
+            <h2>Reglas que resuelven las dudas frecuentes</h2>
+            <ul class="rules">
+                <li><strong>Postres.</strong> El postre listado cada día es <em>tras la cena</em>. Tras la comida hay postre
+                opcional: <strong>fruta entera</strong> (la misma fruta de media mañana cambiada de momento, no se suma).
+                Un segundo postre diario supone +0,4–0,8 kg al mes.</li>
+                <li><strong>Café con leche.</strong> Todos los días, junto al desayuno: café con leche <strong>desnatada</strong>
+                (250 ml, ~90 kcal, 8 g proteína). Ya está dentro de las 1.800–1.900 kcal. Sin azúcar.
+                <em>Versión actual:</em> café solo al llegar al trabajo (~0 kcal, sin impacto) + café con leche desnatada
+                sin lactosa tras la siesta (~90 kcal extra no contabilizados). Total 3 cafés/día: cumple el límite,
+                pero ese segundo café con leche consume el primer recorte previsto si el peso se estanca.</li>
+                <li><strong>Merienda de tarde (16:30–17:30).</strong> El hueco comida (15:30) → cena (21:00) es largo.
+                Opción A: mover el tentempié de media mañana a esta franja. Opción B: café con leche desnatada + 1 fruta
+                o 1 yogur natural (los dos opciones son intercambiables con la media mañana, no se suman).
+                El café solo NO es suficiente para aguantar hasta la cena estudiando.</li>
+                <li><strong>Sustitución de nueces.</strong> 10 nueces (13 g) ≈ 15 almendras (18 g) ≈ 20 g pipas de calabaza
+                ≈ 20 g semillas de girasol ≈ 12 g chía. Todas ~80–110 kcal.</li>
+                <li><strong>AOVE (1 cda o 1 cdta).</strong> La cucharada indicada es el <em>total</em> de aceite de esa comida,
+                ya sea en crudo (ensaladas, vinagretas) o para cocinar (plancha, wok, salteado, horno, cremas).
+                No se añade otra encima. 1 cdta = 5 ml (~45 kcal); 1 cda = 10 ml (~90 kcal).</li>
+            </ul>
+        </section>
+
+        <!-- ================= RUTINA DIARIA ================= -->
         <section>
             <h2>Rutina Diaria</h2>
-            <ul>
-                <li><strong>06:30</strong> - Desayuno: Café con leche y avena con fruta o pan integral con aguacate.</li>
-                <li><strong>08:10 - 09:00</strong> - Deporte en el trabajo: Carrera continua, series, fuerza o vóleybol.</li>
-                <li><strong>09:00</strong> - Post-entrenamiento: Fruta con yogur o huevo cocido y un café.</li>
-                <li><strong>15:30</strong> - Comida: Platos equilibrados con proteínas, carbohidratos y verduras.</li>
-                <li><strong>16:00</strong> - Siesta: Máximo 20-30 minutos.</li>
-                <li><strong>16:30</strong> - Merienda: Café con fruta, frutos secos o tostada integral.</li>
-                <li><strong>18:00 - 21:00</strong> - Labores del hogar, estudios y compras.</li>
-                <li><strong>21:00</strong> - Cena ligera: Ensalada, cremas de verduras o tortilla.</li>
-                <li><strong>23:00</strong> - Dormir: Reduce pantallas antes de acostarte, al menos de 30 a 60 minutos antes de dormir.</li>
+            <ul class="rules">
+                <li><strong>06:30</strong> — Desayuno en casa (según menú) + café con leche desnatada.</li>
+                <li><strong>Llegada al trabajo</strong> — Café solo, sin azúcar.</li>
+                <li><strong>08:10 – 09:00</strong> — Deporte en el trabajo: carrera continua, series, fuerza o vóleybol.</li>
+                <li><strong>09:00</strong> — Post-entrenamiento: fruta con yogur o huevo cocido (media mañana del menú).</li>
+                <li><strong>15:30</strong> — Comida: platos del menú (proteína + carbohidrato + verduras).</li>
+                <li><strong>16:00</strong> — Siesta: máximo 20–30 minutos.</li>
+                <li><strong>16:30</strong> — Tras la siesta: café con leche desnatada sin lactosa + fruta o yogur (merienda).</li>
+                <li><strong>18:00 – 21:00</strong> — Labores del hogar, estudios y compras.</li>
+                <li><strong>21:00</strong> — Cena ligera + postre del día (tras la cena).</li>
+                <li><strong>23:00</strong> — Dormir: reducir pantallas 30–60 min antes.</li>
             </ul>
         </section>
+
+        <!-- ================= MENÚ SEMANAL ================= -->
         <section>
             <h2>Menú Semanal</h2>
-            <h3>Lunes</h3>
-            <ul>
-                <li onclick="toggleRecipe(this)"><strong>Desayuno:</strong> Café con leche y pan integral y aguacate con Queso Fresco.
-                    <div class="recipe">Receta:<br>
-                        - Acompaña el aguacate con un poco de queso fresco o requesón desnatado.<br>
-                        - Puedes añadir orégano o albahaca para más sabor.
-                    </div>
-                </li>
-                <li onclick="toggleRecipe(this)"><strong>Comida:</strong> Pollo a la plancha con arroz integral y verduras al vapor.
-                    <div class="recipe">Receta:<br>
-                        - Cocina arroz integral (puedes hacer una tanda para varios días).<br>
-                        - Asa pechuga de pollo con especias (pimienta, ajo, pimentón).<br>
-                        - Cocina al vapor zanahorias, brócoli y calabacín (puedes usar congelados).
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Yogur natural con miel y almendras.
-                        <div class="recipe">Receta:<br>
-                            - Mezcla un yogur natural con una cucharadita de miel en un bol.<br>
-                            - Agrega cinco almendras picadas y remueve antes de comer.
-                        </div>
-                    </ul>
-                </li>
-                <li onclick="toggleRecipe(this)"><strong>Cena:</strong> Tortilla francesa con espinacas y ensalada.
-                    <div class="recipe">Receta:<br>
-                        - Bate 2 huevos, añade espinacas frescas y cocina como tortilla. <br>
-                        - Acompaña con ensalada mixta.
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Manzana asada con canela.
-                        <div class="recipe">Receta:<br>
-                            - Lava y pela una manzana.<br>
-                            - Espolvorea media cucharadita de canela por encima.<br>
-                            - Calienta en el microondas 3-5 minutos.
-                        </div>
-                    </ul>
-                </li>
-            </ul>
-            <h3>Martes</h3>
-            <ul>
-                <li onclick="toggleRecipe(this)"><strong>Desayuno:</strong> Café con leche y pan integral y aguacate con Tomate y Especias.
-                    <div class="recipe">Receta:<br>
-                        - Unta el aguacate y añade rodajas de tomate fresco, sal y un toque de pimienta o pimentón.<br>
-                        - Puedes agregar un chorrito de aceite de oliva virgen extra.
-                    </div>
-                </li>
-                <li onclick="toggleRecipe(this)"><strong>Comida:</strong> Lentejas guisadas con verduras.
-                    <div class="recipe">Receta:<br>
-                        - Cocina las lentejas con cebolla, zanahoria, pimiento y tomate natural.<br>
-                        - Añade especias al gusto.
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Gelatina de frutas sin azucar.</ul>
-                </li>
-                <li onclick="toggleRecipe(this)"><strong>Cena:</strong> Crema de calabacín con huevo cocido.
-                    <div class="recipe">Receta:<br>
-                        - Cuece calabacín con puerro, tritura con caldo y añade huevo cocido troceado como guarnición.
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Queso fresco con nueces y miel.
-                        <div class="recipe">Receta:<br>
-                            - Corta 50g de queso fresco en cubos.<br>
-                            - Añade tres nueces troceadas y una cucharadita de miel por encima.
-                        </div>
-                    </ul>
-                </li>
-            </ul>
-            <h3>Miércoles</h3>
-            <ul>
-                <li onclick="toggleRecipe(this)"><strong>Desayuno:</strong> Café con leche y pan integral y aguacate con Hummus.
-                    <div class="recipe">Receta:<br>
-                        - Unta una capa de hummus en el pan antes de colocar el aguacate.<br>
-                        - Puedes espolvorear semillas de sésamo, chía o comino para un toque extra.
-                    </div>
-                </li>
-                <li onclick="toggleRecipe(this)"><strong>Comida:</strong> Pasta integral con atún y salsa de tomate casera
-                    <div class="recipe">Receta:<br>
-                        - Haz una salsa con tomate triturado, ajo y cebolla.<br>
-                        - Añade atún enlatado al natural.<br>
-                        - Mezcla todo y sirve con albahaca fresca o queso rallado.
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Mousse de cacao y plátano.
-                        <div class="recipe">Receta:<br>
-                            - Tritura un plátano con un tenedor o en una batidora.<br>
-                            - Añade un yogur natural y el cacao en polvo sin azucar, mezclando bien.<br>
-                            - Refrigera antes de servir para una textura más firme.
-                        </div>
-                    </ul>
-                </li>
-                <li onclick="toggleRecipe(this)"><strong>Cena:</strong> Ensalada de garbanzos y aguacate.
-                    <div class="recipe">Receta:<br>
-                        - Mezcla garbanzos cocidos, aguacate en trozos, tomate, pepino y cebolla.<br>
-                        - Aliña con aceite de oliva, limón y especias al gusto.
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Fresas con chocolate negro.
-                        <div class="recipe">Receta:<br>
-                            - Derrite 20g de chocolate  negro (+85% cacao) en el microondas.<br>
-                            - Sumerge cinco fresas en el chocolate y colócalas en papel de horno.<br>
-                            - Deja enfriar hasta que el chocolate solidifique.
-                        </div>
-                    </ul>
-                </li>
-            </ul>
-            <h3>Jueves</h3>
-            <ul>
-                <li onclick="toggleRecipe(this)"><strong>Desayuno:</strong> Café con leche y pan integral y aguacate con Jamón Serrano o Pavo.
-                    <div class="recipe">Receta:<br>
-                        - Acompaña el aguacate con unas lonchas de jamón serrano o pavo sin procesar.<br>
-                        - Puedes añadir unas hojas de rúcula o espinacas para frescura.
-                    </div>
-                </li>
-                <li onclick="toggleRecipe(this)"><strong>Comida:</strong> Merluza al horno con patatas y verduras.
-                    <div class="recipe">Receta:<br>
-                        - Coloca filetes de merluza en una bandeja.<br>
-                        - Añade rodajas de patata, zanahoria y calabacín.<br>
-                        - Hornea a 180ºC durante 20-25 minutos con un chorrito de aceite, ajo y perejil.
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Chía con leche y frutos rojos.
-                        <div class="recipe">Receta:<br>
-                            - Mezcla dos cucharaditas de semillas de chía con la leche y una cucharadita miel.<br>
-                            - Deja reposar en la nevera al menos 2 horas o toda la noche.<br>
-                            - Añade un puñado de frutos rojos antes de servir.
-                        </div>
-                    </ul>
-                </li>
-                <li onclick="toggleRecipe(this)"><strong>Cena:</strong> Revuelto de champiñones y espárragos con tostada integral.
-                    <div class="recipe">Receta:<br>
-                        - Saltea champiñones y espárragos.<br>
-                        - Añade 2 huevos batidos y revuelve.<br>
-                        - Sirve con una tostada integral.
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Requesón con miel y semillas.
-                        <div class="recipe">Receta:<br>
-                            - Mezcla 50g de requesón con una cucharadita de miel.<br>
-                            - Espolvorea media cucharadita de semillas de chía o sesamo antes de servir.
-                        </div>
-                    </ul>
-                </li>
-            </ul>
-            <h3>Viernes</h3>
-            <ul>
-                <li onclick="toggleRecipe(this)"><strong>Desayuno:</strong> Café con leche y pan integral y aguacate con Miel y Frutos Secos.
-                    <div class="recipe">Receta:<br>
-                    - Si te apetece un toque dulce, añade un chorrito de miel y algunas nueces o almendras troceadas.</div>
-                </li>
-                <li onclick="toggleRecipe(this)"><strong>Comida:</strong> Pollo al curry con arroz basmati.
-                    <div class="recipe">Receta:<br>
-                        - Sofríe cebolla y ajo, añade pechuga de pollo en trozos.<br>
-                        - Incorpora leche de coco, curry en polvo y un toque de cúrcuma. Cocina 10 minutos.<br>
-                        - Sirve con arroz basmati.
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Pudding de avena y canela.
-                        <div class="recipe">Receta:<br>
-                            - Cocina 30g de avena con 200ml de leche a fuego medio hasta espesar.<br>
-                            - Añade una cucharadita canela y media cucharadita de miel.<br>
-                            - Deja enfriar antes de servir.
-                        </div>
-                    </ul>
-                </li>
-                <li onclick="toggleRecipe(this)"><strong>Cena:</strong> Sopa de verduras y pechuga de pavo a la plancha.
-                    <div class="recipe">Receta:<br>
-                        - Cocina una sopa con calabaza, apio, zanahoria y puerro. Tritura o deja en trozos.<br>
-                        - Acompaña con filetes de pavo a la plancha.<br>
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Compota de pera sin azúcar.
-                        <div class="recipe">Receta:<br>
-                            - Pela y trocea una pera.<br>
-                            - Cocina con el agua y media cucharadita canela a fuego medio hasta que esté blanda.<br>
-                            - Tritura si deseas una textura más suave.
-                        </div>
-                    </ul>
-                </li>
-            </ul>
-            <h3>Sábado</h3>
-            <ul>
-                <li onclick="toggleRecipe(this)"><strong>Desayuno:</strong> Café con leche y Avena con Cacao y Plátano.
-                    <div class="recipe">Receta:<br>
-                        - En un cazo, calienta la leche y el cacao (puro sin azucar) y añade 1/2 taza de avena.<br>
-                        - Cocina a fuego medio, removiendo hasta que espese (unos 3-5 minutos).<br>
-                        - Agrega un plátano triturado y mezcla bien.<br>
-                        - Sirve con fruta fresca (fresas o arandanos) y frutos secos.
-                    </div>
-                </li>
-                <li onclick="toggleRecipe(this)"><strong>Comida:</strong> Quinoa con verduras salteadas y pollo.
-                    <div class="recipe">Receta:<br>
-                        - Cocina quinoa y reserva.<br>
-                        - Saltea pimiento, calabacín, champiñones y cebolla.<br>
-                        - Añade pechuga de pollo troceada y mezcla con la quinoa.
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Yogur natural con miel y almendras.
-                        <div class="recipe">Receta:<br>
-                            - Mezcla un yogur natural con una cucharadita de miel en un bol.<br>
-                            - Agrega cinco almendras picadas y remueve antes de comer.
-                        </div>
-                    </ul>
-                </li>
-                <li onclick="toggleRecipe(this)"><strong>Cena:</strong> Pizza saludable casera.
-                    <div class="recipe">Receta:<br>
-                        - Usa una base integral o de tortilla de trigo.<br>
-                        - Cubre con tomate triturado, queso mozzarella, champiñones, espinacas y pechuga de pavo.<br>
-                        - Hornea hasta que el queso esté derretido.
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Mousse de mango y yogur.
-                        <div class="recipe">Receta:<br>
-                            - Tritura medio mango con un yogur natural y una cucharadita de miel.<br>
-                            - Refrigera antes de servir.
-                        </div>
-                    </ul>
-                </li>
-            </ul>
-            <h3>Domingo</h3>
-            <ul>
-                <li onclick="toggleRecipe(this)"><strong>Desayuno:</strong> Café con leche y Avena Caliente con Fruta.
-                    <div class="recipe">Receta:<br>
-                        - En un cazo, calienta la leche y añade 1/2 taza de avena.<br>
-                        - Cocina a fuego medio, removiendo hasta que espese (unos 3-5 minutos).<br>
-                        - Endulza con miel o canela.<br>
-                        - Sirve con la fruta cortada por encima y añade frutos secos o semillas para más textura.
-                    </div>
-                </li>
-                <li onclick="toggleRecipe(this)">
-                    <strong>Comida:</strong>Pisto con huevo a la plancha.
-                    <div class="recipe">
-                        Receta:<br>
-                        - Sofríe pimiento, cebolla, calabacín, berenjena y tomate triturado. Cocina a fuego lento.<br>
-                        - Sirve con un huevo a la plancha encima.<br>
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Brownie de plátano y cacao saludable.
-                        <div class="recipe">Receta:<br>
-                            - Tritura un plátano y mézclalo con un huevo, una cucharadita de harina y una cucharadita de cacao sin azucar.<br>
-                            - Hornea a 180°C durante 15 minutos en un molde pequeño.
-                        </div>
-                    </ul>
-                </li>
-                <li onclick="toggleRecipe(this)">
-                    <strong>Cena:</strong> Ensalada César ligera.
-                    <div class="recipe">
-                        Receta:<br>
-                        - Mezcla lechuga romana, pollo a la plancha en tiras, un poco de queso parmesano y picatostes integrales.<br>
-                        - Aliña con yogur natural mezclado con limón, ajo en polvo y mostaza.<br>
-                    </div>
-                    <br>
-                    <ul onclick="toggleRecipe(this)"><strong>Postre:</strong> Helado de yogur y frutos del bosque.
-                        <div class="recipe">Receta:<br>
-                            - Mezcla un yogur natural, 100g de frutos del bosque y una cucharadita de miel en una batidora.<br>
-                            - Congela por 1 hora para conseguir una textura de helado.</div>
-                    </ul>
-                </li>
-            </ul>
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-week="s1">Semana 1</button>
+                <button class="tab-btn" data-week="s2">Semana 2</button>
+                <button class="tab-btn" data-week="s3">Semana 3</button>
+                <button class="tab-btn" data-week="s4">Semana 4</button>
+            </div>
+
+            <!-- ===== SEMANA 1 ===== -->
+            <div class="week-panel active" id="s1">
+                <div class="day-card"><h3>Lunes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Avena cocida (60 g en seco) con leche semidesnatada (200 ml), 1 plátano pequeño (120 g) y canela.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 manzana (150 g) + 15 almendras (18 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Pechuga de pollo a la plancha (180 g) + arroz integral (70 g en seco) + brócoli al vapor (200 g) + 1 cda de AOVE.</p>
+                    <p class="meal"><strong>Cena:</strong> Merluza al horno (200 g) con patata cocida (150 g) y ensalada de tomate (150 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> 1 yogur natural sin azúcar (125 g).</p>
+                </div>
+                <div class="day-card"><h3>Martes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> 2 tostadas de pan integral (60 g) con tomate rallado (50 g), AOVE (1 cdta) y queso fresco batido 0% (50 g). Café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 pera (150 g) + 1 yogur natural.</p>
+                    <p class="meal"><strong>Comida:</strong> Lentejas estofadas (150 g cocidas) con verduras (200 g: zanahoria, puerro, pimiento).</p>
+                    <p class="meal"><strong>Cena:</strong> Tortilla francesa de 2 huevos + 1 clara, con espinacas (150 g) y champiñones (100 g); 1 rebanada de pan integral (30 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> 1 naranja (150 g).</p>
+                </div>
+                <div class="day-card"><h3>Miércoles</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Yogur griego natural (200 g) con 40 g de avena, 15 g de semillas de calabaza y ½ manzana (80 g) troceada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> Café + 1 tostada integral (30 g) con pavo (30 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Pasta integral (70 g en seco) con atún al natural (2 latas, 160 g escurridos) y tomate triturado (100 g) + ensalada verde (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de calabacín (calabacín 300 g, patata 80 g, 1 cdta AOVE) + filete de pavo a la plancha (120 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> 1 kiwi (100 g).</p>
+                </div>
+                <div class="day-card"><h3>Jueves</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Revuelto de 2 huevos + 1 clara con champiñones (100 g); 1 tostada integral (40 g); café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 plátano pequeño (120 g) + 20 g de cacahuetes naturales sin sal.</p>
+                    <p class="meal"><strong>Comida:</strong> Ternera a la plancha magra (150 g) + puré de patata (180 g, hecho con leche desnatada 50 ml) + judías verdes (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Ensalada de garbanzos (150 g cocidos) con tomate (100 g), pepino (100 g), atún (1 lata, 80 g) y vinagreta ligera (1 cda AOVE).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Yogur natural sin azúcar (125 g).</p>
+                </div>
+                <div class="day-card"><h3>Viernes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Batido de avena (50 g) con leche desnatada (250 ml), fresas congeladas (100 g) y 1 medida de proteína en polvo (opcional, ~120 kcal).</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 pera (150 g) + queso fresco batido 0% (150 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Salmón a la plancha (150 g) + quinoa (60 g en seco) + pimientos asados (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Pizza casera: base fina integral (50 g), tomate triturado (50 g), mozzarella light (50 g), atún (40 g escurrido), orégano + ensalada verde (150 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> 1 manzana asada (150 g) con canela, sin azúcar.</p>
+                </div>
+                <div class="day-card"><h3>Sábado</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Tostada integral (60 g) con aguacate (70 g) y huevo pochado (1); café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> Yogur natural + 1 puñado de frutos rojos (50 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Arroz con marisco ligero: arroz (70 g en seco) con calamares y gambas (150 g) + ensalada mixta (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de verduras variadas (300 g: puerro, zanahoria, calabacín) + tortilla francesa de 2 huevos.</p>
+                    <p class="meal"><strong>Postre (fin de semana):</strong> Mousse de yogur con cacao puro sin azúcar: yogur griego 125 g + cacao 5 g + edulcorante.</p>
+                </div>
+                <div class="day-card"><h3>Domingo</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Pancakes de avena (50 g) + 1 huevo + ½ plátano pequeño (60 g), con yogur natural (125 g) y fresas (50 g). Café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 fruta de temporada (150 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Pollo al horno (180 g) con patatas asadas (180 g, 1 cda AOVE) y ensalada mixta (200 g).</p>
+                    <p class="flex-note">(Comida libre flexible: puede sustituirse por una comida fuera, plato único + fruta.)</p>
+                    <p class="meal"><strong>Cena:</strong> Sopa de fideos finos (30 g) + merluza (180 g) con verduras salteadas (150 g, 1 cdta AOVE).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Gelatina sin azúcar + 1 yogur natural (125 g).</p>
+                </div>
+                <div class="shopping">
+                    <h4>🛒 Lista de la compra — Semana 1</h4>
+                    <p><strong>Proteínas y lácteos:</strong> pechuga de pollo 450 g · filetes de pavo 200 g · ternera magra 160 g · merluza 450 g · salmón 160 g · calamares/gambas 180 g · atún en lata 3 latas · huevos 10 · yogur natural sin azúcar 8 uds · yogur griego 330 g · queso fresco batido 0% 250 g · leche desnatada 2 L · mozzarella light 50 g.</p>
+                    <p><strong>Despensa:</strong> avena 160 g · arroz integral 140 g · pasta integral 70 g · quinoa 60 g · lentejas 70 g (secas) · garbanzos cocidos 1 bote · pan integral 1 barra pequeña (~200 g) · tomate triturado 1 bote pequeño · cacahuetes naturales 40 g · almendras 30 g · semillas de calabaza 20 g · cacao puro · gelatina sin azúcar · vinagre · especies.</p>
+                    <p><strong>Frutas:</strong> plátanos pequeños 2 · manzanas 2 · peras 2 · naranja 1 · kiwi 1 · fresas 150 g (frescas o congeladas) · frutos rojos 50 g · aguacate 1 · limón 1.</p>
+                    <p><strong>Verduras:</strong> brócoli 200 g · calabacín 2 (~400 g) · espinacas 150 g · champiñones 250 g · judías verdes 150 g · pimientos 250 g · tomates maduros 400 g · lechuga/canónigos 500 g · pepino 1 · puerro 2 · zanahorias 300 g · patatas 700 g · cebolla 2.</p>
+                </div>
+            </div>
+
+            <!-- ===== SEMANA 2 ===== -->
+            <div class="week-panel" id="s2">
+                <div class="day-card"><h3>Lunes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Kéfir natural (200 ml) con avena (40 g) y chía (10 g).</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 pera (150 g) + café.</p>
+                    <p class="meal"><strong>Comida:</strong> Arroz integral (70 g en seco) con pollo en salsa de tomate casera (180 g de pollo, 100 g de tomate) y calabacín (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Salteado de ternera magra (130 g) con pimientos (100 g), cebolla (50 g) y brotes de soja (50 g), 1 cdta AOVE; 1 tostada integral (30 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Yogur natural (125 g).</p>
+                </div>
+                <div class="day-card"><h3>Martes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> 2 tostadas integrales (60 g) con hummus (30 g) y tomate rallado (50 g); café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 naranja (150 g) + 15 almendras (18 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Garbanzos guisados (150 g cocidos) con espinacas (150 g) y zanahoria (100 g); ensalada verde (100 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Lubina o dorada al horno (200 g) con verduras asadas (200 g: pimiento, calabacín, cebolla, 1 cda AOVE).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> 1 kiwi (100 g).</p>
+                </div>
+                <div class="day-card"><h3>Miércoles</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Tostada integral (60 g) con aguacate (70 g), jamón serrano (40 g) y tomate (50 g); café.</p>
+                    <p class="meal"><strong>Media mañana:</strong> Yogur natural (125 g) + 1 manzana (150 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Wok de pollo (180 g) con arroz basmati (70 g en seco) y verduras al wok (200 g: pimiento, brócoli, zanahoria, 1 cdta AOVE).</p>
+                    <p class="meal"><strong>Cena:</strong> Ensalada de quinoa (50 g en seco) con huevo duro (1), tomate (100 g) y atún (80 g escurrido).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Queso fresco batido 0% (150 g) con canela.</p>
+                </div>
+                <div class="day-card"><h3>Jueves</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Avena fría (overnight oats, 50 g) con leche desnatada (200 ml), cacao puro (5 g) y plátano pequeño (120 g).</p>
+                    <p class="meal"><strong>Media mañana:</strong> Café + 20 g de pipas de calabaza.</p>
+                    <p class="meal"><strong>Comida:</strong> Lomo de cerdo magro a la plancha (150 g) + patata cocida (150 g) + puerro (50 g) y zanahoria (100 g) salteados.</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de puerros (puerro 150 g, patata 80 g) + salmón al horno (130 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> 1 pera (150 g).</p>
+                </div>
+                <div class="day-card"><h3>Viernes</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Yogur griego (200 g) con granola sin azúcar (30 g) y frutos rojos (50 g).</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 tostada con pavo (30 g) + café.</p>
+                    <p class="meal"><strong>Comida:</strong> Fideuá de verduras y gambas (fideos 70 g, gambas 100 g, verduras 150 g) + ensalada verde (150 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Tortilla de patata al horno con poco aceite: 2 huevos + patata (120 g) + ensalada verde (150 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Gelatina sin azúcar.</p>
+                </div>
+                <div class="day-card"><h3>Sábado</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Wrap integral pequeño (40 g) con huevo revuelto (2 huevos) y espinacas (50 g); café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 plátano pequeño (120 g) + 10 almendras (12 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Arroz con pollo y verduras (paella casera ligera: arroz 70 g, pollo 150 g, verduras 150 g).</p>
+                    <p class="flex-note">(Puede comerse fuera: plato único, postre fruta.)</p>
+                    <p class="meal"><strong>Cena:</strong> Hamburguesa casera en pan integral (60 g): carne magra (120 g), queso light (20 g), lechuga, tomate + boniato asado (120 g).</p>
+                    <p class="meal"><strong>Postre (fin de semana):</strong> Helado casero: 1 plátano congelado (120 g) batido + canela.</p>
+                </div>
+                <div class="day-card"><h3>Domingo</h3>
+                    <p class="meal"><strong>Desayuno:</strong> Huevo pochado (1) sobre tostada integral (60 g) con yogur (50 g) y limón; café con leche desnatada.</p>
+                    <p class="meal"><strong>Media mañana:</strong> 1 fruta de temporada (150 g).</p>
+                    <p class="meal"><strong>Comida:</strong> Guiso de ternera magra (150 g) con patatas (150 g) y zanahoria (100 g).</p>
+                    <p class="meal"><strong>Cena:</strong> Crema de champiñones (champiñones 250 g, patata 80 g) + revuelto de 2 huevos con gambas (80 g) y calabacín (100 g).</p>
+                    <p class="meal"><strong>Postre (tras la cena):</strong> Yogur natural (125 g).</p>
+                </div>
+                <div class="shopping">
+                    <h4>🛒 Lista de la compra — Semana 2</h4>
+                    <p class="note">Pendiente de incorporar desde el documento original (v2). Mantener mientras tanto la lista de la Semana 1 ajustando las cantidades según lo consumido.</p>
+                </div>
+            </div>
+
+            <!-- ===== SEMANA 3 ===== -->
+            <div class="week-panel" id="s3">
+                <div class="day-card"><h3>Semana 3</h3>
+                    <p class="note">Contenido pendiente de incorporar desde el documento original (v2), páginas 6–7.</p>
+                </div>
+            </div>
+
+            <!-- ===== SEMANA 4 ===== -->
+            <div class="week-panel" id="s4">
+                <div class="day-card"><h3>Semana 4</h3>
+                    <p class="note">Contenido pendiente de incorporar desde el documento original (v2), páginas 8–10.</p>
+                </div>
+            </div>
         </section>
-        <section class="weight-tracker"> 
+
+        <!-- ================= SEGUIMIENTO DE PESO ================= -->
+        <section class="weight-tracker">
             <h2>Seguimiento de Peso</h2>
-                <p>Introduce tu peso para llevar un seguimiento semanal:</p>
-                <input type="date" id="weight-date" required>
-                <input type="number" id="weight-input" placeholder="Peso en kg" step="0.1" required>
-                
-                <button id="add-weight-btn">Añadir Peso</button>
-                <div class="weight-history">
-                    <h3>Historial de Pesos</h3>
-                    <ul id="weight-list"> <!-- Pesos añadidos aparecerán aquí --> </ul>
-                </div>
-                <div>
-                    <canvas id="weightChart" width="400" height="200"></canvas>
-                </div>
+            <p>Introduce tu peso para llevar un seguimiento semanal (en ayunas, mismo día y hora):</p>
+            <input type="date" id="weight-date" required>
+            <input type="number" id="weight-input" placeholder="Peso en kg" step="0.1" required>
+            <button id="add-weight-btn">Añadir Peso</button>
+            <div class="weight-history">
+                <h3>Historial de Pesos</h3>
+                <ul id="weight-list"></ul>
+            </div>
+            <div>
+                <canvas id="weightChart" width="400" height="200"></canvas>
+            </div>
         </section>
-        
+
     </div>
     <footer>
         <p>Plan diseñado para mejorar tu bienestar. ¡Paso a paso se logran grandes cambios!</p>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Asegúrate de reemplazar estas variables con tus credenciales reales de Supabase
-            const supabaseUrl = 'https://vkpihntirtniverucyym.supabase.co'; // Cambia por tu URL
-            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrcGlobnRpcnRuaXZlcnVjeXltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzczMTM1NzMsImV4cCI6MjA1Mjg4OTU3M30.0V2L-NfyVvGrpW8eashHB7ussk1mhBMykI7ZxqBypgk'; // Cambia por tu clave pública
+            // Nota de seguridad: esta clave "anon" es pública por diseño, pero la tabla "weights"
+            // debe tener RLS activado en Supabase limitando SELECT/INSERT/DELETE a datos propios.
+            const supabaseUrl = 'https://vkpihntirtniverucyym.supabase.co';
+            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrcGlobnRpcnRuaXZlcnVjeXltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzczMTM1NzMsImV4cCI6MjA1Mjg4OTU3M30.0V2L-NfyVvGrpW8eashHB7ussk1mhBMykI7ZxqBypgk';
             const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
             const weightDateInput = document.getElementById('weight-date');
             const weightInput = document.getElementById('weight-input');
             const addWeightBtn = document.getElementById('add-weight-btn');
             const weightsTable = document.getElementById('weight-list');
             const weightChartCtx = document.getElementById('weightChart').getContext('2d');
-            
-            const today = new Date();
-            const formattedDate = today.toISOString().split('T')[0]; // Formato: YYYY-MM-DD
-            weightDateInput.value = formattedDate;
 
-            let weightChart; // Referencia para el gráfico
-    
+            const today = new Date();
+            weightDateInput.value = today.toISOString().split('T')[0];
+
+            let weightChart;
+
+            // ---- Pestañas de semanas ----
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.week-panel').forEach(p => p.classList.remove('active'));
+                    btn.classList.add('active');
+                    document.getElementById(btn.dataset.week).classList.add('active');
+                });
+            });
+
             async function saveWeight(weight, date) {
-                const { data, error } = await supabase.from('weights').insert([
-                    { weight, date }
-                ]);
+                const { error } = await supabase.from('weights').insert([{ weight, date }]);
                 if (error) {
                     console.error('Error al guardar peso:', error.message);
                     alert('No se pudo guardar el peso. Revisa la consola para más detalles.');
                     return;
                 }
-                console.log('Peso guardado:', data);
                 await loadWeights();
             }
-    
-            // Cargar los pesos desde Supabase
+
             async function loadWeights() {
                 const { data, error } = await supabase.from('weights').select('*').order('date', { ascending: true });
                 if (error) {
                     console.error('Error al cargar pesos:', error.message);
                     return;
                 }
-    
-                // Limpiar lista
                 weightsTable.innerHTML = '';
-    
-                // Mostrar datos en la lista
                 data.forEach(({ id, weight, date }) => {
                     const listItem = document.createElement('li');
                     listItem.textContent = `${weight} kg - ${new Date(date).toLocaleDateString()}`;
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Eliminar';
+                    deleteButton.style.marginLeft = '10px';
+                    deleteButton.style.width = 'auto';
+                    deleteButton.addEventListener('click', () => deleteWeight(id));
+                    listItem.appendChild(deleteButton);
                     weightsTable.appendChild(listItem);
-                
-          
-              
-                  // Botón de eliminar
-                  const deleteButton = document.createElement('button');
-                  deleteButton.textContent = 'Eliminar';
-                  deleteButton.style.marginLeft = '10px';
-                  deleteButton.addEventListener('click', () => deleteWeight(id));
-          
-                  listItem.appendChild(deleteButton);
-                  weightsTable.appendChild(listItem);
                 });
-          
-              updateChart(data);
+                updateChart(data);
             }
-            
+
             async function deleteWeight(id) {
-              const { error } = await supabase.from('weights').delete().eq('id', id);
-          
-              if (error) {
-                  console.error('Error al eliminar el registro:', error.message);
-                  alert('No se pudo eliminar el registro. Inténtalo de nuevo.');
-                  return;
-              }
-          
-              alert('Registro eliminado con éxito.');
-              loadWeights(); // Recargar la lista y gráfica
+                const { error } = await supabase.from('weights').delete().eq('id', id);
+                if (error) {
+                    console.error('Error al eliminar el registro:', error.message);
+                    alert('No se pudo eliminar el registro. Inténtalo de nuevo.');
+                    return;
+                }
+                loadWeights();
             }
-          
-            // Actualizar el gráfico de pesos
+
             function updateChart(data) {
                 const labels = data.map(entry => new Date(entry.date).toLocaleDateString());
-                const weights = data.map(entry => parseFloat(entry.weight)); // Asegurarse de que sea numérico
-            
-                console.log('Etiquetas del gráfico:', labels);
-                console.log('Pesos del gráfico:', weights);
-            
-                if (weightChart) {
-                    weightChart.destroy(); // Destruir gráfico existente antes de crear uno nuevo
-                }
-            
+                const weights = data.map(entry => parseFloat(entry.weight));
+
+                if (weightChart) weightChart.destroy();
+
                 weightChart = new Chart(weightChartCtx, {
                     type: 'line',
                     data: {
@@ -495,57 +402,33 @@
                             borderColor: '#5cb85c',
                             backgroundColor: 'rgba(92, 184, 92, 0.2)',
                             borderWidth: 2,
-                            fill: true,
+                            fill: true
                         }]
                     },
                     options: {
                         responsive: true,
                         scales: {
-                            x: {
-                                title: {
-                                    display: true,
-                                    text: 'Fecha',
-                                }
-                            },
-                            y: {
-                                title: {
-                                    display: true,
-                                    text: 'Peso (kg)',
-                                },
-                                beginAtZero: false
-                            }
+                            x: { title: { display: true, text: 'Fecha' } },
+                            y: { title: { display: true, text: 'Peso (kg)' }, beginAtZero: false }
                         }
                     }
                 });
             }
-            
-    
+
             addWeightBtn.addEventListener('click', async () => {
                 const weight = parseFloat(weightInput.value);
                 const date = weightDateInput.value;
-    
                 if (isNaN(weight) || !date) {
                     alert('Por favor, introduce un peso y una fecha válidos.');
                     return;
                 }
-    
                 await saveWeight(weight, date);
                 weightInput.value = '';
-                weightDateInput.value = '';
             });
-    
+
             loadWeights();
         });
     </script>
-    <script>
-        function toggleRecipe(element) {
-            const recipe = element.querySelector('.recipe');
-            if (recipe.style.display === 'block') {
-                recipe.style.display = 'none';
-            } else {
-                recipe.style.display = 'block';
-            }
-        }
-    </script>
 </body>
 </html>
+
